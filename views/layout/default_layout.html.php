@@ -13,18 +13,18 @@
 <body>
 
 <div id="header">
-	<h1><?php echo $title; ?></h1>
+	<h1>Rentrée Administrateur</h1>
 </div>
 
-<div class="row">
-	<div id="nav" class="col-lg-1">
+<div id="content">
+	<div id="nav" class="col-lg-2">
 		<a href="index.php">Accueil</a><br>
 		<a href="?/eleves">Elèves</a><br>
 		<a href="?/documents">Documents</a><br>
 		<a href="?/parametres">Paramètres</a>
 	</div>
 
-	<div id="section" class="col-lg-11">
+	<div id="section" class="col-lg-10">
 	<?php if (isset($content)){ 
 		echo $content;
 	}
