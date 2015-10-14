@@ -1,4 +1,4 @@
-<php
+<?php
 require_once 'lib/limonade.php';
 
 dispatch('/documents', function(){

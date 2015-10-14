@@ -17,7 +17,13 @@ Tokyo<br>
 </div>
 
 <div id="section">
-<?php echo $content; ?>
+<?php if (isset($side)){ 
+	echo $side;
+}
+else{
+	echo "Il y a une erreur avec la page";
+}
+?>
 </div>
 
 <div id="footer">
