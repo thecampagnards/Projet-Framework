@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<div id="header">
+<div id="headerdd">
 <h1><?php echo $title; ?></h1>
 </div>
 
