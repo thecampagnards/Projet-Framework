@@ -11,9 +11,10 @@
 </div>
 
 <div id="nav">
-London<br>
-Paris<br>
-Tokyo<br>
+<a href="index.php">Accueil</a><br>
+<a href="?/eleves">Elèves</a><br>
+<a href="?/documents">Documents</a>
+<a href="?/parametres">Paramètres</a>
 </div>
 
 <div id="section">
