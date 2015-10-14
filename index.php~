@@ -1,0 +1,18 @@
+<?php
+require_once 'lib/limonade.php';
+
+dispatch('/documents', function(){
+	return html('templates/documents.html.php');
+});
+
+dispatch('/eleves', function(){
+	return html('templates/eleves.html.php');
+});
+dispatch('/', function(){
+	return html('templates/default.html.php');
+});
+dispatch('/parametres', function(){
+	return html('templates/parametres.html.php');
+});
+run();
+?>
