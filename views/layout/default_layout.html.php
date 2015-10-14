@@ -17,8 +17,8 @@ Tokyo<br>
 </div>
 
 <div id="section">
-<?php if (isset($side)){ 
-	echo $side;
+<?php if (isset($content)){ 
+	echo $content;
 }
 else{
 	echo "Il y a une erreur avec la page";
