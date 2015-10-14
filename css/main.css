@@ -1,6 +1,5 @@
- <style>
-#header {
-    background-color:black;
+#headerdd {
+    background-color:#C5EFFF;
     color:white;
     text-align:center;
     padding:5px;
@@ -19,10 +18,10 @@
     padding:10px;
 }
 #footer {
-    background-color:black;
+    background-color:#C5EFFF;
     color:white;
     clear:both;
     text-align:center;
     padding:5px;
 }
-</style> 
+
