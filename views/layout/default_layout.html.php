@@ -12,18 +12,18 @@
 </head>
 <body>
 
-<div id="headerdd">
+<div id="header">
 <h1><?php echo $title; ?></h1>
 </div>
 
-<div id="nav">
+<div id="nav" class="col-xs-1">
 <a href="index.php">Accueil</a><br>
 <a href="?/eleves">Elèves</a><br>
 <a href="?/documents">Documents</a>
 <a href="?/parametres">Paramètres</a>
 </div>
 
-<div id="section">
+<div id="section" class="col-xs-11">
 <?php if (isset($content)){ 
 	echo $content;
 }

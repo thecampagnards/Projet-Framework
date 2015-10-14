@@ -1,4 +1,4 @@
-#headerdd {
+#header {
     background-color:#4682B4;
     color:white;
     text-align:center;
@@ -8,17 +8,17 @@
     line-height:30px;
     background-color: #3E4650;
     height:300px;
-    width:100px;
+    /*width:100px;
     float:left;
-    padding:5px;
+    padding:5px;*/
     color:white;
 }
 #section {
     background-color:#C5EFFF;
-    width:1150px;
+    /*width:1150px;*/
     height:300px;
-    float:left;
-    padding:5px;
+   /* float:left;
+    padding:5px;*/
 }
 #footer {
     background-color:#4682B4;
