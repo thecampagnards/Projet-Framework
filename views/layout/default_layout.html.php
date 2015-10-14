@@ -17,14 +17,14 @@
 </div>
 
 <div class="row">
-	<div id="nav" class="col-xs-1">
+	<div id="nav" class="col-lg-1">
 		<a href="index.php">Accueil</a><br>
 		<a href="?/eleves">Elèves</a><br>
-		<a href="?/documents">Documents</a>
+		<a href="?/documents">Documents</a><br>
 		<a href="?/parametres">Paramètres</a>
 	</div>
 
-	<div id="section" class="col-xs-11">
+	<div id="section" class="col-lg-11">
 	<?php if (isset($content)){ 
 		echo $content;
 	}
