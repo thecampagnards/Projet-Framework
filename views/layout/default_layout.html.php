@@ -9,9 +9,10 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 	<!-- Latest compiled and minified JavaScript -->
+	<script src="js/jquery-2.1.4.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/main.js"></script>
 	<script src="js/jquery.dataTables.min.js"></script>
+	<script src="js/main.js"></script>
 </head>
 <body>
 
