@@ -17,10 +17,10 @@ echo "<h1>$title</h1>";?>
     <thead>
   <tr>
     <th>#</th>
-    <th>rang</th>
-    <th>promo</th>
-    <th>libelle</th>
-    <th>fichier</th>
+    <th class="sorting">rang</th>
+    <th class="sorting">promo</th>
+    <th class="sorting">libelle</th>
+    <th class="sorting">fichier</th>
     <th></th>
   </tr>
     </thead>
