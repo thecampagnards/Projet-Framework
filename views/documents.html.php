@@ -14,6 +14,7 @@ echo "<h1>$title</h1>";?>
 </div>
 
 <table id="table_id" class="table table-striped table-hover display">
+    <thead>
   <tr>
     <th>#</th>
     <th>rang</th>
@@ -22,7 +23,8 @@ echo "<h1>$title</h1>";?>
     <th>fichier</th>
     <th></th>
   </tr>
-
+    </thead>
+  <tbody>
 <?php $reponse = $bdd->query('SELECT * FROM document ORDER BY rang');
 while ($donnees = $reponse->fetch()){ ?>
   <tr>
@@ -43,5 +45,6 @@ while ($donnees = $reponse->fetch()){ ?>
   <?php }
   $reponse->closeCursor(); // Termine le traitement de la requête
   ?>
+  </tbody>
 
 </table> 
