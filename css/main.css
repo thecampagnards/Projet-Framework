@@ -1,12 +1,11 @@
 #header {
-    background-color:#4682B4;
+    background-color:#59afd1;
     color:white;
     text-align:center;
     padding:5px;
     height: 80px;
-}
-#content {
-    height: 600px;
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: bold;
 }
 #nav {
     line-height:30px;
@@ -19,21 +18,27 @@
     color:white;
     height: 100%;
 }
+#navbar{
+}
 #section {
-    background-color:#C5EFFF;
-    /*width:1150px;*/
+    /*background-color:#C5EFFF;
+    width:1150px;
     height: 100%;
     max-height: 500px;
     overflow:auto;
-    /*float:left;
+    float:left;
     padding:5px;*/
+    font-family: Arial,Helvetica,sans-serif;
+
 }
 #footer {
-    background-color:#4682B4;
+    background-color:#59afd1;
     color:white;
     clear:both;
     text-align:center;
     padding:5px;
     height: 30px;
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: bold;
 }
 
