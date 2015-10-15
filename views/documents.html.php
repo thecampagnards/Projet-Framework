@@ -13,7 +13,7 @@ echo "<h1>$title</h1>";?>
 	<button type="button" class="btn btn-danger">Supprimer</button>
 </div>
 
-<table id="table_id" class="table table-striped table-hover display">
+<table id="table_id" class="table table-striped table-hover display table-bordered">
     <thead>
   <tr>
     <th>#</th>
