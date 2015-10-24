@@ -3,3 +3,4 @@ Création d'une interface d'administration pour l'application http://web.isen-br
 
 version 1.0 : création des routes
 version 1.1 : ajout du fichier routes
+version 2 : affichage du tableau + modals de suprression et modification
