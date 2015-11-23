@@ -111,13 +111,8 @@
     <script src="js/sb-admin-2.js"></script>
     <script src="js/jquery.dataTables.min.js"></script>
     <script src="js/dataTables.bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
 
 </html>
-
-<script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable();
-    } );
-</script>

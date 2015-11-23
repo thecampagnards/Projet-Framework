@@ -22,7 +22,7 @@
 <!-- Tableau de données-->
 <div class="panel-body">
   <div class="dataTable_wrapper">
-    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+    <table class="table table-striped table-bordered table-hover" id="table_id">
       <thead>
         <tr>
           <th><input type="checkbox" name="select-all" id="select-all" /></th>
