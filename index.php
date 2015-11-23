@@ -1,15 +1,15 @@
 <?php
-require_once 'lib/limonade.php';
+//ajout de limonade
+require('lib/limonade.php');
+//ajout des defines
+require('inc/config.inc.php');
+//ajout des fonctions de base
+require('modeles/index.php');
 
-dispatch('/documents', function(){
-	set("title", "Documents");
-	return html('documents.html.php','layout/default_layout.html.php');
-});
 
-dispatch('/eleves', function(){
-	set("title", "Elèves");
-	return html('eleves.html.php','layout/default_layout.html.php');
-});
+dispatch('/documents', documents_controller);
+dispatch('/eleves', eleves_controller);
+
 dispatch('/', function(){
 	set("title", "Accueil");
 	return html('default.html.php','layout/default_layout.html.php');
