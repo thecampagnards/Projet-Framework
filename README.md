@@ -15,4 +15,5 @@ Création d'une interface d'administration pour l'application http://web.isen-br
   <li>Pormotion</li>
   <li>Fix Tableau</li>
   <li>Home</li>
+  <li>Voir ordre doc avec promo</li>
 </ul>
