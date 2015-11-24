@@ -1,6 +1,6 @@
 $(document).ready( function () {
 $('#table_id').dataTable( {
-	"aoColumnDefs": [{ 'bSortable': false, 'aTargets': [ 0,5  ] }],
+	"aoColumnDefs": [{ 'bSortable': false, 'aTargets': [ 0, $('#table_id thead tr th').length-1 ] }],
 	"order": [[ 1, "asc" ]],
 	'iDisplayLength': 10
 });

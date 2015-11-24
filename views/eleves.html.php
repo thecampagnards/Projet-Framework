@@ -32,7 +32,7 @@
       <th class="sorting">courriel</th>
       <th class="sorting">date</th>
       <th class="sorting">ip</th>
-      <th class="sorting">Actions</th>
+      <th>Actions</th>
     </tr>
     </thead>
     <tbody>
