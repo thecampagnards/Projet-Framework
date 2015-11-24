@@ -66,6 +66,15 @@
           </div>
           <div class="modal-body">
             <?php echo $eleve['identifiant']; ?>
+<form class="form-horizontal">
+        <form class="contact" name="contact">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+  </div>
+        </form>
+</form>
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
