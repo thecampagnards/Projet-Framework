@@ -22,7 +22,7 @@
 <!-- Tableau de données-->
 <div class="panel panel-default">
   <div class="panel-heading">
-  Table de données
+    Table de données
   </div>
   <div class="panel-body">
     <div class="dataTable_wrapper">
@@ -119,7 +119,7 @@
     <!-- Modal ajouter-->
     <div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content col-md-12">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="myModalLabel">Supprimer le document <?php echo $document['libelle']; ?></h4>
@@ -141,7 +141,7 @@
               </div>
               <div class="form-group">
                 <label for="InputFichier">Fichier</label>
-                <input type="file" class="form-control" id="InputFichier" placeholder="Fichier" name="fichier">
+                <input id="InputFichier"  name="fichier" placeholder="Fichier" type="file" class="file form-control">
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
