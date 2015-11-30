@@ -110,22 +110,5 @@
         <script src="js/fileinput.min.js"></script>
         <script src="js/fileinput_locale_fr.js"></script>
         <script src="js/main.js"></script>
-
-        <script>
-            $(document).on('ready', function() {
-                $(".file").fileinput({
-                    allowedFileExtensions : ['pdf', 'doc', 'odf','docx'],
-                    language: 'fr',
-                    maxFileSize: 10000,
-                    required: false,
-                    showRemove: false,
-                    showUpload: false,
-                    maxFileCount: 1,
-                });
-            });
-        </script>
-
-
     </body>
     </html>
-
