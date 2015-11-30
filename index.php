@@ -8,6 +8,7 @@ require('modeles/index.php');
 
 
 dispatch('/documents', documents_controller);
+dispatch_post('/documents', documents_controller);
 dispatch('/eleves', eleves_controller);
 
 dispatch('/', function(){

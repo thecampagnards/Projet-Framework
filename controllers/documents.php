@@ -4,7 +4,7 @@ require('modeles/documents.php');
 function documents_controller(){
 	//si post
 	if(!empty($_POST)) {
-
+		var_dump($_POST);
 	}
 
 	$documents = getDocuments();
