@@ -20,5 +20,6 @@ function documents_controller(){
 	set("title", "Documents");
 	set("subtitle", 'Il y a '.count($documents).' document(s)');
 	set("documents", $documents);
+	set("promotions", getPromotions());
 	return html('documents.html.php','layout/default_layout.html.php');
 }
