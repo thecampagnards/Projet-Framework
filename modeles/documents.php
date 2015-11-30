@@ -26,7 +26,7 @@ function editDocument($id, $rang, $promo, $libelle, $fichier) {
 	$stmt->bindParam(':rang', $rang, PDO::PARAM_INT);
 	$stmt->bindParam(':promo', $promo, PDO::PARAM_STR);
 	$stmt->bindParam(':libelle', $libelle, PDO::PARAM_STR);
-	$stmt->bindParam(':fichier', $fichier, PDO::PARAM_STR);
+	$stmt->bindParam(':fichier', $fichier['name'], PDO::PARAM_STR);
 
 	if($stmt->execute() or die(var_dump($stmt->ErrorInfo()))) {
 		return true;
@@ -39,7 +39,6 @@ function addDocument($rang, $promo, $libelle, $fichier) {
 	$bdd = connectDB();
 
 	$sql = 'INSERT INTO document SET
-	id = :id,
 	rang = :rang,
 	libelle = :libelle,
 	fichier = :fichier';
@@ -49,7 +48,8 @@ function addDocument($rang, $promo, $libelle, $fichier) {
 	$stmt->bindParam(':rang', $rang, PDO::PARAM_INT);
 	$stmt->bindParam(':promo', $promo, PDO::PARAM_STR);
 	$stmt->bindParam(':libelle', $libelle, PDO::PARAM_STR);
-	$stmt->bindParam(':fichier', $fichier, PDO::PARAM_STR);
+	$stmt->bindParam(':fichier', $fichier['name'], PDO::PARAM_STR);
+	var_dump($stmt);
 
 	if($stmt->execute() or die(var_dump($stmt->ErrorInfo()))) {
 		return true;

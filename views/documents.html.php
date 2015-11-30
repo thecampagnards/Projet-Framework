@@ -65,10 +65,10 @@
                 <div class="modal-body">
                   <form class="form-horizontal" action="documents" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?php echo $document['id']; ?>">
-                    <input type="hidden" name="type" value="edit">
+                    <input type="hidden" name="action" value="edit">
                     <div class="form-group">
                       <label for="InputRang">Rang</label>
-                      <input type="text" class="form-control" id="InputRang" placeholder="Rang" name="rang" value="<?php echo $document['rang']; ?>">
+                      <input type="number" class="form-control" id="InputRang" placeholder="Rang" name="rang" value="<?php echo $document['rang']; ?>">
                     </div>
                     <div class="form-group">
                       <label for="InputPromotion">Promotion</label>
@@ -103,7 +103,7 @@
                   Voulez vous supprimer <?php echo $document['libelle']; ?> ?
                   <form class="form-horizontal" action="documents" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?php echo $document['id']; ?>">
-                    <input type="hidden" name="type" value="delete">
+                    <input type="hidden" name="action" value="delete">
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
                       <button type="submit" class="btn btn-primary">Supprimer</button>
@@ -126,7 +126,7 @@
           </div>
           <div class="modal-body">
             <form class="form-horizontal" action="documents" method="POST" enctype="multipart/form-data">
-              <input type="hidden" name="type" value="add">
+              <input type="hidden" name="action" value="add">
               <div class="form-group">
                 <label for="InputRang">Rang</label>
                 <input type="text" class="form-control" id="InputRang" placeholder="Rang" name="rang">
