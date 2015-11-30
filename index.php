@@ -10,6 +10,10 @@ require('modeles/index.php');
 dispatch('/documents', documents_controller);
 dispatch_post('/documents', documents_controller);
 dispatch('/eleves', eleves_controller);
+dispatch_post('/eleves', eleves_controller);
+dispatch('/promotions', promotions_controller);
+dispatch_post('/promotions', promotions_controller);
+
 
 dispatch('/', function(){
 	set("title", "Accueil");
