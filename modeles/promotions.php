@@ -61,3 +61,13 @@ function deletePromotion($id) {
 	}
 	return false;
 }
+
+//si la promotion est en 1,2 ou 3,4,5 eme année
+function checkPromotion($value){
+	if(in_array(substr($value, -1),array("1", "2"))){
+		return 1;
+	}else if(in_array(substr($value, -1),array("3", "4", "5"))){
+		return 2;
+	}
+	return false;
+}

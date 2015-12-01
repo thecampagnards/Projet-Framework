@@ -1,18 +1,15 @@
 <!--Alertes pour affichers les resultats des actions-->
-<div id="ban">
+<?php if(isset($SUCCESS) && $SUCCESS): ?>
   <div class="alert alert-success">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Success!</strong> This alert box could indicate a successful or positive action.
   </div>
-  <div class="alert alert-warning">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Warning!</strong> This alert box could indicate a successful or positive action.
-  </div>
+<?php elseif(isset($SUCCESS) && !$SUCCESS): ?>
   <div class="alert alert-danger">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Danger!</strong> This alert box could indicate a successful or positive action.
   </div>
-</div>
+<?php endif ?>
 
 <div id="buttons-tab">
 	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Ajouter</button>
