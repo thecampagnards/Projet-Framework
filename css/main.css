@@ -51,3 +51,12 @@
 #table_id_wrapper{
     margin-top: 10px;
 }*/
+
+
+.file-preview-frame{
+    width: 95%;
+}
+
+.file-preview-text,.file-preview-frame{
+    width: 100%!important;
+}

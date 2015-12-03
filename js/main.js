@@ -19,31 +19,45 @@ $('#select-all').click(function(event) {
       });
      }
    });	
+});
 
-
-$(".file").fileinput({
-  allowedFileExtensions : ['pdf', 'doc', 'odf','docx'],
-  initialPreview: [
+$(document).on('ready', function() {
+  $('.file').fileinput({
+    allowedFileExtensions : ['pdf', 'doc', 'odf','docx'],
+    initialPreview: [
     //"<img src='"+ $(this).val() +"' class='file-preview-image' />",
     ],
     initialCaption: [
     //console.log($(this).val()),
     ],
-    language: 'fr',
     maxFileSize: 10000,
-    required: false,
+    required: true,
     showRemove: false,
     showUpload: false,
     maxFileCount: 1
   });
+});
 
+$(document).on('ready', function() {
   $("#InputFichier").fileinput({
+    allowedFileExtensions : ['csv'],
     language: 'fr',
     maxFileSize: 10000,
-    required: false,
+    required: true,
     showRemove: false,
     showUpload: false,
     maxFileCount: 1
   });
+});
 
+$(document).on('ready', function() {
+  $("#file").fileinput({
+    allowedFileExtensions : ['csv'],
+    language: 'fr',
+    maxFileSize: 10000,
+    required: true,
+    showRemove: false,
+    showUpload: false,
+    maxFileCount: 1
+  });
 });
