@@ -20,6 +20,21 @@ $('#select-all').click(function(event) {
      }
    });	
 
+//fonction liste item check
+$('#buttonDelAll').click(function(event) {
+var values=[];   
+  $(':checkbox').each(function() {
+    if(this.checked)
+      values.push($(this).closest("td input[name='id']").val());
+    });
+  $('#listDelAll').html('');
+  $('input[name=ids]').val(values);
+  $.each(values, function(index, value){
+    if(value !== undefined)
+      $('#listDelAll').append("<li>"+value+"</li>");
+  });
+});  
+
 
 $(".file").fileinput({
   allowedFileExtensions : ['pdf', 'doc', 'odf','docx'],

@@ -16,7 +16,7 @@
 
 <div id="buttons-tab">
   <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Ajouter</button>
-  <button type="button" class="btn btn-danger">Supprimer</button>
+  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelAll" id="buttonDelAll">Supprimer</button>
 </div>
 <br/>
 <!-- Tableau de données-->
@@ -38,7 +38,7 @@
         <tbody>
           <?php foreach ($promotions as $key => $promotion): ?>
           <tr>
-            <td><input type="checkbox" value="<?php echo $promotion['id']; ?>"></td>
+            <td><input type="checkbox" value="<?php echo $promotion['id']; ?>" name='id'></td>
             <td><?php echo $promotion['id']; ?></td>
             <td><?php echo $promotion['libelle']; ?></td>
             <td>
@@ -124,6 +124,29 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
                 <button type="submit" class="btn btn-primary">Ajouter</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Supprimer-->
+      <div class="modal fade" id="myModalDelAll" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content col-md-12">
+            <div class="modal-header">
+              <button type="button" class= "close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Voulez-vous supprimer le(s) promotion(s) suivante(s) ?</h4>
+            </div>
+            <form class="form-horizontal" action="promotions" method="POST">
+              <input type="hidden" name="type" value="deletes">
+              <input type="hidden" name="ids">
+              <div class="modal-body">
+                <ul id="listDelAll">
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                <button type="submit" class="btn btn-danger">Supprimer</button>
               </div>
             </form>
           </div>
