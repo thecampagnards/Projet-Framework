@@ -10,10 +10,9 @@
 		<strong>Danger!</strong> This alert box could indicate a successful or positive action.
 	</div>
 <?php endif ?>
-
 <div id="buttons-tab">
 	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Ajouter</button>
-	<button type="button" class="btn btn-danger">Supprimer</button>
+	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelAll">Supprimer</button>
 </div>
 <br/>
 <!-- Tableau de données-->
@@ -59,8 +58,8 @@
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 									<h4 class="modal-title" id="myModalLabel">Modifier le document <?php echo $document['libelle']; ?></h4>
 								</div>
-								<div class="modal-body">
-									<form class="form-horizontal" action="documents" method="POST" enctype="multipart/form-data">
+								<form class="form-horizontal" action="documents" method="POST" enctype="multipart/form-data">
+									<div class="modal-body">									
 										<input type="hidden" name="id" value="<?php echo $document['id']; ?>">
 										<input type="hidden" name="action" value="edit">
 										<div class="form-group">
@@ -83,13 +82,13 @@
 									<div class="form-group">
 										<label for="InputFichier">Fichier</label>
 										<input id="InputFichier"  name="fichier" placeholder="Fichier" type="file" class="file form-control" value="<?php echo $document['fichier']; ?>">
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-										<button type="submit" class="btn btn-primary">Enregistrer</button>
-									</div>
-								</form>
-							</div>
+									</div>								
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+									<button type="submit" class="btn btn-primary">Enregistrer</button>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -101,7 +100,6 @@
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 								<h4 class="modal-title" id="myModalLabel">Voulez-vous supprimer le document <?php echo $document['libelle']; ?></h4>
 							</div>
-							<!--Voulez vous supprimer <?php echo $document['libelle']; ?> ?-->
 							<form class="form-horizontal" action="documents" method="POST" enctype="multipart/form-data">
 								<input type="hidden" name="id" value="<?php echo $document['id']; ?>">
 								<input type="hidden" name="action" value="delete">
@@ -124,8 +122,8 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title" id="myModalLabel">Ajouter un nouveau document</h4>
 				</div>
-				<div class="modal-body">
-					<form class="form-horizontal" action="documents" method="POST" enctype="multipart/form-data">
+				<form class="form-horizontal" action="documents" method="POST" enctype="multipart/form-data">
+					<div class="modal-body">					
 						<input type="hidden" name="action" value="add">
 						<div class="form-group">
 							<label for="InputPromotion">Promotion</label>
@@ -135,7 +133,6 @@
 								<option value="<?php echo $promotion['id'] ?>" ><?php echo $promotion['libelle'] ?></option>
 							<?php endforeach; ?>
 						</select>
-
 					</div>
 					<div class="form-group">
 						<label for="InputLibelle">Libelle</label>
@@ -148,13 +145,32 @@
 					<div class="form-group">
 						<label for="InputFichier">Fichier</label>
 						<input id="InputFichier"  name="fichier" placeholder="Fichier" type="file" class="file form-control">
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-						<button type="submit" class="btn btn-primary">Ajouter</button>
-					</div>
-				</form>
+					</div>				
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+					<button type="submit" class="btn btn-primary">Ajouter</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- Modal Supprimer-->
+<div class="modal fade" id="myModalDelAll" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content col-md-12">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Voulez-vous supprimer le(s) document(s) suivant(s) ?</h4>
 			</div>
+			<form class="form-horizontal" action="documents" method="POST">
+				<div class="modal-body">
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+					<button type="submit" class="btn btn-danger">Supprimer</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>

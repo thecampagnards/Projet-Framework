@@ -158,12 +158,13 @@
 						<label for="InputRang">Mail</label>
 						<input type="email" class="form-control" id="InputRang" placeholder="Adresse mail" name="courriel">
 					</div>
-					<div class="modal-footer">
+
+				</form>
+			</div>
+								<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
 						<button type="submit" class="btn btn-primary">Ajouter</button>
 					</div>
-				</form>
-			</div>
 		</div>
 	</div>
 </div>
