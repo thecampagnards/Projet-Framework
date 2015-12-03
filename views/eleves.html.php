@@ -59,20 +59,38 @@
 		<!-- Modal Modifier-->
 		<div class="modal fade" id="myModalMod<?php echo $eleve['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="eleve">
-				<div class="modal-content">
+				<div class="modal-content col-md-12">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<h4 class="modal-title" id="myModalLabel">Modifier le eleve <?php echo $eleve['identifiant']; ?></h4>
 					</div>
 					<div class="modal-body">
-						<?php echo $eleve['identifiant']; ?>
-						<form class="form-horizontal">
-							<form class="contact" name="contact">
-								<div class="form-group">
-									<label for="exampleInputEmail1">Email address</label>
-									<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-								</div>
-							</form>
+						<form class="form-horizontal" action="eleves" method="POST" enctype="multipart/form-data">
+							<input type="hidden" name="action" value="add">
+							<div class="form-group">
+								<label for="InputRang">Identifiant ENT</label>
+								<input type="text" class="form-control" id="InputRang" placeholder="Identifiant" name="identifiant" value="<?php echo $eleve['identifiant']; ?>">
+							</div>
+							<div class="form-group">
+								<label for="InputRang">Nom</label>
+								<input type="text" class="form-control" id="InputRang" placeholder="Nom" name="nom_fils" value="<?php echo $eleve['nom_fils']; ?>">
+							</div>
+							<div class="form-group">
+								<label for="InputRang">Prénom</label>
+								<input type="text" class="form-control" id="InputRang" placeholder="Prénom" name="prenom_fils" value="<?php echo $eleve['prenom_fils']; ?>">
+							</div>
+							<div class="form-group">
+								<label for="InputRang">Date de naissance</label>
+								<input type="date" class="form-control" id="InputRang" placeholder="Date de naissance" name="ddn_fils" value="">
+							</div>
+							<div class="form-group">
+								<label for="InputRang">Téléphone</label>
+								<input type="tel" class="form-control" id="InputRang" placeholder="Téléphone mobile" name="tel_mobile" value="<?php echo $eleve['tel_mobile']; ?>">
+							</div>
+							<div class="form-group">
+								<label for="InputRang">Mail</label>
+								<input type="email" class="form-control" id="InputRang" placeholder="Adresse mail" name="courriel" value="<?php echo $eleve['courriel']; ?>">
+							</div>
 						</form>
 
 					</div>
@@ -86,17 +104,17 @@
 		<!-- Modal Supprimer-->
 		<div class="modal fade" id="myModalDel<?php echo $eleve['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="eleve">
-				<div class="modal-content">
+				<div class="modal-content col-md-12">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">Supprimer le eleve <?php echo $eleve['identifiant']; ?></h4>
+						<h4 class="modal-title" id="myModalLabel">Voulez vous supprimer l'élève <?php echo $eleve['prenom_fils'].' '.$eleve['nom_fils']; ?> ?</h4>
 					</div>
-					<div class="modal-body">
-						<?php echo $eleve['identifiant']; ?>
-					</div>
+					<form class="form-horizontal" action="documents" method="POST" enctype="multipart/form-data">
+						<input type="hidden" name="type" value="add">
+					</form>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-						<button type="button" class="btn btn-primary">Supprimer</button>
+						<button type="button" class="btn btn-danger">Supprimer</button>
 					</div>
 				</div>
 			</div>
@@ -111,16 +129,20 @@
 		<div class="modal-content col-md-12">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Supprimer le document <?php echo $document['libelle']; ?></h4>
+				<h4 class="modal-title" id="myModalLabel">Ajouter un élève</h4>
 			</div>
 			<div class="modal-body">
 				<form class="form-horizontal" action="eleves" method="POST" enctype="multipart/form-data">
 					<input type="hidden" name="action" value="add">
 					<div class="form-group">
+						<label for="InputRang">Identifiant ENT</label>
+						<input type="text" class="form-control" id="InputRang" placeholder="Identifiant" name="identifiant">
+					</div>
+					<div class="form-group">
 						<label for="InputRang">Nom</label>
 						<input type="text" class="form-control" id="InputRang" placeholder="Nom" name="nom_fils">
 					</div>
-<div class="form-group">
+					<div class="form-group">
 						<label for="InputRang">Prénom</label>
 						<input type="text" class="form-control" id="InputRang" placeholder="Prénom" name="prenom_fils">
 					</div>
