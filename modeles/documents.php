@@ -46,13 +46,16 @@ function addDocument($rang, $promo, $libelle, $fichier) {
 
 	$stmt = $bdd->prepare($sql);
 
-	if(checkPromotion($promo) == 1){
-		$fichier_db = 'A12/'.$fichier['name'];
-	}else if(checkPromotion($promo) == 2){
-		$fichier_db = 'A345/'.$fichier['name'];
-	}else{
-		$fichier_db = $fichier['name'];
+	if(isset($fichier['name'])){
+		if(checkPromotion($promo) == 1) move_uploaded_file($_FILES['icone']['tmp_name'],'A12/'.$fichier['name']);
+		else if(checkPromotion($promo) == 2) move_uploaded_file($_FILES['icone']['tmp_name'],'A345/'.$fichier['name']);
+		else move_uploaded_file($_FILES['icone']['tmp_name'],$fichier['name']);
+		$fichier = $fichier['name'];
 	}
+
+	if(checkPromotion($promo) == 1) $fichier_db = 'A12/'.$fichier;
+	else if(checkPromotion($promo) == 2) $fichier_db = 'A345/'.$fichier;
+	else $fichier_db = $fichier;
 
 	$stmt->bindParam(':rang', $rang, PDO::PARAM_INT);
 	$stmt->bindParam(':promo', $promo, PDO::PARAM_STR);
