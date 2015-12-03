@@ -22,7 +22,7 @@
 <!-- Tableau de données-->
 <div class="panel panel-default">
   <div class="panel-heading">
-    Table de données
+    Tableau des promotions
   </div>
   <div class="panel-body">
     <div class="dataTable_wrapper">
@@ -49,28 +49,28 @@
                <span class="glyphicon  glyphicon glyphicon-trash" aria-hidden="true"></span>
              </button>
            </td>
-         </tr>
-         <!-- Modal Modifier-->
-         <div class="modal fade" id="myModalMod<?php echo $promotion['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="promotion">
-            <div class="modal-content col-md-12">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modifier la promotion <?php echo $promotion['id']; ?></h4>
-              </div>
-              <div class="modal-body">
+          </tr>
+          <!-- Modal Modifier-->
+          <div class="modal fade" id="myModalMod<?php echo $promotion['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="promotion">
+              <div class="modal-content col-md-12">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Modifier la promotion <?php echo $promotion['id']; ?></h4>
+                </div>
                 <form class="form-horizontal" action="promotions" method="POST" enctype="multipart/form-data">
-                  <input type="hidden" name="id" value="<?php echo $promotion['id']; ?>">
-                  <input type="hidden" name="type" value="edit">
-                  <div class="form-group">
-                    <label for="InputPromotion">Promotion</label>
-                    <input type="text" class="form-control" id="InputPromotion" placeholder="Promotion" name="id" value="<?php echo $promotion['id']; ?>">
+                  <div class="modal-body">
+                    <input type="hidden" name="id" value="<?php echo $promotion['id']; ?>">
+                    <input type="hidden" name="type" value="edit">
+                    <div class="form-group">
+                      <label for="InputPromotion">Promotion</label>
+                      <input type="text" class="form-control" id="InputPromotion" placeholder="Promotion" name="id" value="<?php echo $promotion['id']; ?>">
+                    </div>
+                    <div class="form-group">
+                      <label for="InputLibelle">Libelle</label>
+                      <input type="text" class="form-control" id="InputLibelle" placeholder="Libelle" name="libelle" value="<?php echo $promotion['libelle']; ?>">
+                    </div>
                   </div>
-                  <div class="form-group">
-                    <label for="InputLibelle">Libelle</label>
-                    <input type="text" class="form-control" id="InputLibelle" placeholder="Libelle" name="libelle" value="<?php echo $promotion['libelle']; ?>">
-                  </div>
-
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
                     <button type="submit" class="btn btn-primary">Enregistrer</button>
@@ -79,55 +79,56 @@
               </div>
             </div>
           </div>
-        </div>
-        <!-- Modal Supprimer-->
-        <div class="modal fade" id="myModalDel<?php echo $promotion['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="promotion">
-            <div class="modal-content col-md-12">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Voulez vous supprimer <?php echo $promotion['libelle']; ?> ?</h4>
-              </div>  
-              <form class="form-horizontal" action="promotions" method="POST" enctype="multipart/form-data">
-                <input type="hidden" name="id" value="<?php echo $promotion['id']; ?>">
-                <input type="hidden" name="type" value="delete">
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                  <button type="submit" class="btn btn-danger">Supprimer</button>
-                </div>
-              </form>
+          <!-- Modal Supprimer-->
+          <div class="modal fade" id="myModalDel<?php echo $promotion['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="promotion">
+              <div class="modal-content col-md-12">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Voulez vous supprimer <?php echo $promotion['libelle']; ?> ?</h4>
+                </div>  
+                <form class="form-horizontal" action="promotions" method="POST" enctype="multipart/form-data">
+                  <input type="hidden" name="id" value="<?php echo $promotion['id']; ?>">
+                  <input type="hidden" name="type" value="delete">
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-      <?php endforeach; ?>
-    </tbody>
-  </table> 
-  <!-- Modal ajouter-->
-  <div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content col-md-12">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Ajouter une promotion</h4>
-        </div>
-        <div class="modal-body">
-          <form class="form-horizontal" action="documents" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="type" value="add">
-            <div class="form-group">
-              <label for="InputPromotion">Promotion</label>
-              <input type="text" class="form-control" id="InputPromotion" placeholder="Promotion" name="promo">
+          <?php endforeach; ?>
+        </tbody>
+      </table> 
+      <!-- Modal ajouter-->
+      <div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content col-md-12">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Ajouter une promotion</h4>
             </div>
-            <div class="form-group">
-              <label for="InputLibelle">Libelle</label>
-              <input type="text" class="form-control" id="InputLibelle" placeholder="Libelle" name="libelle">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-              <button type="submit" class="btn btn-primary">Ajouter</button>
-            </div>
-          </form>
+            <form class="form-horizontal" action="documents" method="POST" enctype="multipart/form-data">
+              <div class="modal-body">
+                <input type="hidden" name="type" value="add">
+                <div class="form-group">
+                  <label for="InputPromotion">Promotion</label>
+                  <input type="text" class="form-control" id="InputPromotion" placeholder="Promotion" name="promo">
+                </div>
+                <div class="form-group">
+                  <label for="InputLibelle">Libelle</label>
+                  <input type="text" class="form-control" id="InputLibelle" placeholder="Libelle" name="libelle">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                <button type="submit" class="btn btn-primary">Ajouter</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>                            
+</div>
