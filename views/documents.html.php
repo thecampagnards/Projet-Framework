@@ -48,7 +48,7 @@
 				<tbody>
 					<?php foreach ($documents as $key => $document): ?>
 						<tr>
-							<td><input type="checkbox" value="<?php echo $document['id'];" ?> name='id'></td>
+							<td><input type="checkbox" value="<?php echo $document['id']; ?>" name='id'></td>
 							<td><?php echo $document['rang']; ?></td>
 							<td><?php echo $document['promo']; ?></td>
 							<td><?php echo $document['libelle']; ?></td>

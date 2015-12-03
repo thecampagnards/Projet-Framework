@@ -21,10 +21,25 @@ $('#select-all').click(function(event) {
    });	
 });
 
-$(document).on('ready', function() {
-  $('.file').fileinput({
-    allowedFileExtensions : ['pdf', 'doc', 'odf','docx'],
-    initialPreview: [
+//fonction liste item supp
+$('#buttonDelAll').click(function(event) {
+var values=[];   
+  $(':checkbox').each(function() {
+    if(this.checked)
+      values.push($(this).closest("td input[name='id']").val());
+    });
+  $('#listDelAll').html('');
+  $('input[name=ids]').val(values);
+  $.each(values, function(index, value){
+    if(value !== undefined)
+      $('#listDelAll').append("<li>"+value+"</li>");
+  });
+});  
+
+
+$(".file").fileinput({
+  allowedFileExtensions : ['pdf', 'doc', 'odf','docx'],
+  initialPreview: [
     //"<img src='"+ $(this).val() +"' class='file-preview-image' />",
     ],
     initialCaption: [
