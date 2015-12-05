@@ -17,6 +17,7 @@
 <div id="buttons-tab">
 	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Ajouter</button>
 	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelAll">Supprimer</button>
+	<a class="btn btn-primary" href="csv/eleves" download="data.csv">Télécharger les données</a>
 </div>
 <br/>
 <!-- Tableau de données-->
