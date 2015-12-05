@@ -14,10 +14,7 @@ dispatch_post('/eleves', eleves_controller);
 dispatch('/promotions', promotions_controller);
 dispatch_post('/promotions', promotions_controller);
 dispatch('/', index_controller);
+dispatch('/parametres', parametres_controller);
 
-dispatch('/parametres', function(){
-	set("title", "Paramètres");
-	return html('parametres.html.php','layout/default_layout.html.php');
-});
 run();
 ?>

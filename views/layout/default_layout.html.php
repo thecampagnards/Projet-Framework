@@ -26,7 +26,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-    <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.min.js"></script>
 
     </head>
 
@@ -76,6 +76,9 @@
                             </li>
                             <li>
                                 <a href="promotions"><i class="fa fa-users fa-fw"></i> Promotions</a>
+                            </li>
+                            <li>
+                            <a href="parametres"><i class="fa fa-cogs fa-fw"></i> Paramètres</a>
                             </li>
                         </ul>
                     </div>
