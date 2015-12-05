@@ -34,7 +34,7 @@ var values=[];
     if(value !== undefined)
       $('#listDelAll').append("<li>"+value+"</li>");
   });
-});  
+});   
 
 
 $(".file").fileinput({
@@ -51,7 +51,7 @@ $(".file").fileinput({
     showUpload: false,
     maxFileCount: 1
   });
-});
+
 
 $(document).on('ready', function() {
   $("#InputFichier").fileinput({
