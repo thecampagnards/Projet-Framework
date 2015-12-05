@@ -76,3 +76,7 @@ $(document).on('ready', function() {
     maxFileCount: 1
   });
 });
+
+$( "#downloadcsv" ).click(function() {
+  window.location = 'routes.ods';
+});

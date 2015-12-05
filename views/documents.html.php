@@ -10,7 +10,6 @@
 		<strong>Erreur :</strong> Il y a eu un problème lors de la mise à jour.
 	</div>
 <?php endif ?>
-
 <div class="alert alert-info" role="alert"><strong>Informations : </strong>le csv doit être sous la forme rang;promo;libelle;fichier; et la première ligne ne doit pas être vide.</div>
 <form class="form-horizontal" action="documents" method="POST" enctype="multipart/form-data">
 	<input type="hidden" name="action" value="csv">
@@ -24,6 +23,7 @@
 <div id="buttons-tab">
 	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Ajouter</button>
 	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelAll">Supprimer</button>
+	<a class="btn btn-primary" href="documents?csv=true" download="data.csv">Télécharger les données</a>
 </div>
 <br/>
 

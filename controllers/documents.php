@@ -2,6 +2,18 @@
 require('modeles/documents.php');
 
 function documents_controller(){
+
+	if(isset($_GET['csv']) && $_GET['csv']){
+		header("Content-type: text/csv");
+		foreach (getDocuments() as $key => $document) {
+			foreach ($document as $key => $value) {
+			echo  $value.';';
+			}
+			echo  "\n";
+		}
+		return;
+	}
+
 	//si post
 	if(!empty($_POST)) {
 
