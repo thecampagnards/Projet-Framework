@@ -17,7 +17,16 @@
 <div id="buttons-tab">
 	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Ajouter</button>
 	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelAll">Supprimer</button>
-	<a class="btn btn-primary" href="csv/eleves" download="data.csv">Télécharger les données</a>
+	<div class="dropdown">
+	  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+	   Télécharger les données
+	    <span class="caret"></span>
+	  </button>
+	  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+	    <li><a href="pdf/eleves" target="_blank">PDF</a></li>
+	    <li><a href="csv/eleves" download="eleves.csv">CSV</a></li>
+	  </ul>
+	</div>
 </div>
 <br/>
 <!-- Tableau de données-->

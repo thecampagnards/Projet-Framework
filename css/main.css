@@ -60,3 +60,7 @@
 .file-preview-text,.file-preview-frame{
     width: 100%!important;
 }
+.dropdown{
+    float: left;
+    margin-right: 5px;
+}
