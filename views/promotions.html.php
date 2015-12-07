@@ -67,8 +67,8 @@
                 </div>
                 <form class="form-horizontal" action="promotions" method="POST" enctype="multipart/form-data">
                   <div class="modal-body">
-                    <input type="hidden" name="id" value="<?php echo $promotion['id']; ?>">
-                    <input type="hidden" name="type" value="edit">
+                    <input type="hidden" name="id_old" value="<?php echo $promotion['id']; ?>">
+                    <input type="hidden" name="action" value="edit">
                     <div class="form-group">
                       <label for="InputPromotion">Promotion</label>
                       <input type="text" class="form-control" id="InputPromotion" placeholder="Promotion" name="id" value="<?php echo $promotion['id']; ?>">
@@ -116,12 +116,12 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title" id="myModalLabel">Ajouter une promotion</h4>
             </div>
-            <form class="form-horizontal" action="documents" method="POST" enctype="multipart/form-data">
+            <form class="form-horizontal" action="promotions" method="POST" enctype="multipart/form-data">
               <div class="modal-body">
-                <input type="hidden" name="type" value="add">
+                <input type="hidden" name="action" value="add">
                 <div class="form-group">
                   <label for="InputPromotion">Promotion</label>
-                  <input type="text" class="form-control" id="InputPromotion" placeholder="Promotion" name="promo">
+                  <input type="text" class="form-control" id="InputPromotion" placeholder="Promotion" name="id">
                 </div>
                 <div class="form-group">
                   <label for="InputLibelle">Libelle</label>

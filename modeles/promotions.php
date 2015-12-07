@@ -13,18 +13,32 @@ function getPromotions() {
 function editPromotion($id, $libelle) {
 	$bdd = connectDB();
 
-	$sql = 'UPDATE promotions SET
-	id = :id,
-	libelle = :libelle,
-	WHERE id = :id';
+	$sql = 'UPDATE document SET
+	promo = :id
+	WHERE promo = :id_old';
 
 	$stmt = $bdd->prepare($sql);
 
 	$stmt->bindParam(':id', $id, PDO::PARAM_STR);
-	$stmt->bindParam(':libelle', $libelle, PDO::PARAM_STR);
+	$stmt->bindParam(':id_old', $id, PDO::PARAM_STR);
 
 	if($stmt->execute() or die(var_dump($stmt->ErrorInfo()))) {
-		return true;
+		
+		$sql = 'UPDATE promotions SET
+		id = :id,
+		libelle = :libelle
+		WHERE id = :id_old';
+
+		$stmt = $bdd->prepare($sql);
+
+		$stmt->bindParam(':id', $id, PDO::PARAM_STR);
+		$stmt->bindParam(':id_old', $id_old, PDO::PARAM_STR);
+
+		$stmt->bindParam(':libelle', $libelle, PDO::PARAM_STR);
+
+		if($stmt->execute() or die(var_dump($stmt->ErrorInfo()))) {
+			return true;
+		}
 	}
 	return false;
 }
