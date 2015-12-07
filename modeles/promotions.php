@@ -10,7 +10,7 @@ function getPromotions() {
 }
 
 //fonction pour editer une promotion
-function editPromotion($id, $libelle) {
+function editPromotion($id_old,$id, $libelle) {
 	$bdd = connectDB();
 
 	$sql = 'UPDATE document SET
@@ -20,7 +20,7 @@ function editPromotion($id, $libelle) {
 	$stmt = $bdd->prepare($sql);
 
 	$stmt->bindParam(':id', $id, PDO::PARAM_STR);
-	$stmt->bindParam(':id_old', $id, PDO::PARAM_STR);
+	$stmt->bindParam(':id_old', $id_old, PDO::PARAM_STR);
 
 	if($stmt->execute() or die(var_dump($stmt->ErrorInfo()))) {
 		

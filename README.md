@@ -12,10 +12,12 @@ Création d'une interface d'administration pour l'application http://web.isen-br
 	<li>Traduction tableau</li>
 	<li>Disable boutton de suppression multiple</li>
 	<li>Changer id modal suppresion multiple</li>
-	<li>Test ajouter modif et supp de tout</li>
+	<li>Document ajout/supp/modif</li>
 	<li>taille de menu (bug accueil grissé)</li>
 	<li>Variable php pour le dossier des documents</li>
 	<li>pdf ouvrable de la page document</li>
 	<li>csv a importer pour promo et eleve</li>
+	<li>champs requis</li>
+	<li>Emplacement des documents</li>
 	<li><strong>Revoir le cahier des charges !!</strong></li>
 </ul>

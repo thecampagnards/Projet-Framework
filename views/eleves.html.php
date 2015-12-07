@@ -77,9 +77,10 @@
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 									<h4 class="modal-title" id="myModalLabel">Modifier le eleve <?php echo $eleve['identifiant']; ?></h4>
 								</div>
-								<div class="modal-body">
-									<form class="form-horizontal" action="eleves" method="POST" enctype="multipart/form-data">
-										<input type="hidden" name="action" value="add">
+								<form class="form-horizontal" action="eleves" method="POST">
+									<div class="modal-body">
+										<input type="hidden" name="id" value="<?php echo $eleve['id']; ?>">
+										<input type="hidden" name="action" value="edit">
 										<div class="form-group">
 											<label for="InputRang">Identifiant ENT</label>
 											<input type="text" class="form-control" id="InputRang" placeholder="Identifiant" name="identifiant" value="<?php echo $eleve['identifiant']; ?>">
@@ -104,12 +105,13 @@
 											<label for="InputRang">Mail</label>
 											<input type="email" class="form-control" id="InputRang" placeholder="Adresse mail" name="courriel" value="<?php echo $eleve['courriel']; ?>">
 										</div>
-									</form>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-									<button type="button" class="btn btn-primary">Enregistrer</button>
-								</div>
+
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+										<button type="submit" class="btn btn-primary">Enregistrer</button>
+									</div>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -121,13 +123,14 @@
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 									<h4 class="modal-title" id="myModalLabel">Voulez vous supprimer l'élève <?php echo $eleve['prenom_fils'].' '.$eleve['nom_fils']; ?> ?</h4>
 								</div>
-								<form class="form-horizontal" action="documents" method="POST" enctype="multipart/form-data">
-									<input type="hidden" name="type" value="add">
+								<form class="form-horizontal" action="eleves" method="POST">
+									<input type="hidden" name="action" value="delete">
+									<input type="hidden" name="id" value="<?php echo $eleve['id']; ?>">
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+										<button type="submit" class="btn btn-danger">Supprimer</button>
+									</div>
 								</form>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-									<button type="button" class="btn btn-danger">Supprimer</button>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -142,8 +145,9 @@
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							<h4 class="modal-title" id="myModalLabel">Ajouter un élève</h4>
 						</div>
-						<div class="modal-body">
-							<form class="form-horizontal" action="eleves" method="POST" enctype="multipart/form-data">
+						<form class="form-horizontal" action="eleves" method="POST">
+							<div class="modal-body">
+
 								<input type="hidden" name="action" value="add">
 								<div class="form-group">
 									<label for="InputRang">Identifiant ENT</label>
@@ -169,12 +173,13 @@
 									<label for="InputRang">Mail</label>
 									<input type="email" class="form-control" id="InputRang" placeholder="Adresse mail" name="courriel">
 								</div>
-							</form>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-							<button type="submit" class="btn btn-primary">Ajouter</button>
-						</div>
+
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+								<button type="submit" class="btn btn-primary">Ajouter</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>

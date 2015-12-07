@@ -96,7 +96,7 @@
                 </div>  
                 <form class="form-horizontal" action="promotions" method="POST" enctype="multipart/form-data">
                   <input type="hidden" name="id" value="<?php echo $promotion['id']; ?>">
-                  <input type="hidden" name="type" value="delete">
+                  <input type="hidden" name="action" value="delete">
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
                     <button type="submit" class="btn btn-danger">Supprimer</button>
