@@ -13,7 +13,7 @@ function getPromotions() {
 function editPromotion($id, $libelle) {
 	$bdd = connectDB();
 
-	$sql = 'UPDATE promotion SET
+	$sql = 'UPDATE promotions SET
 	id = :id,
 	libelle = :libelle,
 	WHERE id = :id';
@@ -33,7 +33,7 @@ function editPromotion($id, $libelle) {
 function addPromotion($id, $libelle) {
 	$bdd = connectDB();
 
-	$sql = 'INSERT INTO promotion SET
+	$sql = 'INSERT INTO promotions SET
 	id = :id,
 	libelle = :libelle';
 
@@ -52,7 +52,7 @@ function addPromotion($id, $libelle) {
 function deletePromotion($id) {
 	$bdd = connectDB();
 
-	$sql = 'DELETE FROM promotion WHERE id = :id';
+	$sql = 'DELETE FROM promotions WHERE id = :id';
 	$stmt = $bdd->prepare($sql);
 	$stmt->bindParam(':id', $id, PDO::PARAM_STR);
 

@@ -15,9 +15,10 @@ function documents_controller(){
 				while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
 					$SUCCESS = addDocument($data[0], $data[1], $data[2], $data[3]);
 				}
-			}
-			set("SUCCESS", $SUCCESS);
+			}			
 		}
+		elseif($_POST['action'] == 'deletes') foreach (explode(",", $_POST['ids']) as $key => $id) $SUCCESS = deleteDocument($id);
+		set("SUCCESS", $SUCCESS);
 	}
 
 	$documents = getDocuments();

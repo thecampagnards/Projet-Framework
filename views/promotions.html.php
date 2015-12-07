@@ -1,18 +1,15 @@
 <!--Alertes pour affichers les resultats des actions-->
-<div id="ban">
+<?php if(isset($SUCCESS) && $SUCCESS): ?>
   <div class="alert alert-success">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Success!</strong> This alert box could indicate a successful or positive action.
+    <strong>Mise à jour :</strong> Les promotions ont bien été mise à jour.
   </div>
-  <div class="alert alert-warning">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Warning!</strong> This alert box could indicate a successful or positive action.
-  </div>
+<?php elseif(isset($SUCCESS) && !$SUCCESS): ?>
   <div class="alert alert-danger">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Danger!</strong> This alert box could indicate a successful or positive action.
+    <strong>Erreur :</strong> Il y a eu un problème lors de la mise à jour.
   </div>
-</div>
+<?php endif ?>
 
 <div id="buttons-tab">
   <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Ajouter</button>
@@ -148,7 +145,7 @@
               <h4 class="modal-title" id="myModalLabel">Voulez-vous supprimer le(s) promotion(s) suivante(s) ?</h4>
             </div>
             <form class="form-horizontal" action="promotions" method="POST">
-              <input type="hidden" name="type" value="deletes">
+              <input type="hidden" name="action" value="deletes">
               <input type="hidden" name="ids">
               <div class="modal-body">
                 <ul id="listDelAll">

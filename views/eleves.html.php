@@ -1,22 +1,19 @@
 <!--Alertes pour affichers les resultats des actions-->
-<div id="ban">
-	<div class="alert alert-success">
-		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		<strong>Success!</strong> This alert box could indicate a successful or positive action.
-	</div>
-	<div class="alert alert-warning">
-		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		<strong>Warning!</strong> This alert box could indicate a successful or positive action.
-	</div>
-	<div class="alert alert-danger">
-		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		<strong>Danger!</strong> This alert box could indicate a successful or positive action.
-	</div>
-</div>
+<?php if(isset($SUCCESS) && $SUCCESS): ?>
+  <div class="alert alert-success">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Mise à jour :</strong> Les élèves ont bien été mise à jour.
+  </div>
+<?php elseif(isset($SUCCESS) && !$SUCCESS): ?>
+  <div class="alert alert-danger">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Erreur :</strong> Il y a eu un problème lors de la mise à jour.
+  </div>
+<?php endif ?>
 
 <div id="buttons-tab">
 	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Ajouter</button>
-	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelAll">Supprimer</button>
+	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelAll" id="buttonDelAll">Supprimer</button>
 	<div class="dropdown">
 	  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 	   Télécharger les données
@@ -55,7 +52,7 @@
 					<?php foreach ($eleves as $key => $eleve): ?>
 					<tr>
 						<td><input type="checkbox" value="<?php echo $eleve['id']; ?>" name="id"></td>
-						<td><?php echo $eleve['identifiant']; ?></td>
+						<td><?php echo $eleve['identifiant']; ?> </td>
 						<td><?php echo $eleve['nom_fils']; ?></td>
 						<td><?php echo $eleve['prenom_fils']; ?></td>
 						<td><?php echo $eleve['ddn_fils']; ?></td>
@@ -190,7 +187,7 @@
               <h4 class="modal-title" id="myModalLabel">Voulez-vous supprimer le(s) élèves(s) suivant(s) ?</h4>
             </div>
             <form class="form-horizontal" action="eleves" method="POST">
-              <input type="hidden" name="type" value="deletes">
+              <input type="hidden" name="action" value="deletes">
               <input type="hidden" name="ids">
               <div class="modal-body">
                 <ul id="listDelAll">

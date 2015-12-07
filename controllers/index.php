@@ -1,7 +1,7 @@
 <?php
 
 function index_controller(){
-	set("title", "Acceuil");
+	set("title", "Accueil");
 	set("subtitle", "");
 	set("nb_documents", count(getDocuments()));
 	set("nb_eleves", count(getEleves()));
