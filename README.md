@@ -9,15 +9,15 @@ Création d'une interface d'administration pour l'application http://web.isen-br
 <h1>Tâches</h1>
 
 <ul>
-	<li>Traduction tableau</li>
 	<li>Disable boutton de suppression multiple</li>
 	<li>Changer id modal suppresion multiple</li>
+	<li>bug tableau stat eleve</li><br/>
 	<li>Document ajout/supp/modif</li>
-	<li>bug tableau stat eleve</li>
-	<li>Variable php pour le dossier des documents</li>
-	<li>pdf ouvrable de la page document</li>
-	<li>csv a importer pour promo et eleve</li>
-	<li>champs requis</li>
 	<li>Emplacement des documents</li>
+	<li>rang document</li>
+	<li>Variable php pour le dossier des documents</li>
+	<li>pdf ouvrable de la page document</li><br/>
+	<li>csv a importer pour promo et eleve et a replacer</li>
+	<li>champs requis</li>
 	<li><strong>Revoir le cahier des charges !!</strong></li>
 </ul>
