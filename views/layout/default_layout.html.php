@@ -66,7 +66,7 @@
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
                             <li>
-                                <a href="./"><i class="fa fa-dashboard fa-fw"></i> Accueil</a>
+                                <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Accueil</a>
                             </li>
                             <li>
                                 <a href="documents"><i class="fa fa-file-text-o fa-fw"></i> Documents</a>

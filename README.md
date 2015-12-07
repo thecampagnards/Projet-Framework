@@ -13,7 +13,7 @@ Création d'une interface d'administration pour l'application http://web.isen-br
 	<li>Disable boutton de suppression multiple</li>
 	<li>Changer id modal suppresion multiple</li>
 	<li>Document ajout/supp/modif</li>
-	<li>taille de menu (bug accueil grissé)</li>
+	<li>bug tableau stat eleve</li>
 	<li>Variable php pour le dossier des documents</li>
 	<li>pdf ouvrable de la page document</li>
 	<li>csv a importer pour promo et eleve</li>
