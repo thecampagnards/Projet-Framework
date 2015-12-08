@@ -9,6 +9,16 @@ function getDocuments() {
 	return $res->fetchAll(PDO::FETCH_ASSOC);
 }
 
+//fonction pour récupérer les documents
+function getNbDocumentsByPromo($promo) {
+	$bdd = connectDB();
+	$sql = 'SELECT COUNT(promo) FROM document WHERE promo = :promo GROUP BY promo';
+	$res = $bdd->prepare($sql);
+	$res->bindParam(':promo', $promo, PDO::PARAM_STR);
+	$res->execute();
+	return $res->fetchColumn();
+}
+
 //fonction pour editer un document
 function editDocument($id, $rang, $promo, $libelle, $fichier) {
 	$bdd = connectDB();

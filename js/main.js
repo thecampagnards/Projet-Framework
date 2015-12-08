@@ -58,23 +58,6 @@ var values=[];
   });
 });   
 
-
-$(".file").fileinput({
-  allowedFileExtensions : ['pdf', 'doc', 'odf','docx'],
-  initialPreview: [
-    //"<img src='"+ $(this).val() +"' class='file-preview-image' />",
-    ],
-    initialCaption: [
-    //console.log($(this).val()),
-    ],
-    maxFileSize: 10000,
-    required: true,
-    showRemove: false,
-    showUpload: false,
-    maxFileCount: 1
-  });
-
-
 $(document).on('ready', function() {
   $("#InputFichier").fileinput({
     allowedFileExtensions : ['csv'],
@@ -101,4 +84,11 @@ $(document).on('ready', function() {
 
 $( "#downloadcsv" ).click(function() {
   window.location = 'routes.ods';
+});
+
+//requete http pour avoir le nombre de fichier d'une promo pour le rang
+$('select[name="promo"]').change(function() {
+  $.get( "./documents/count/"+$(this).val(), function(data, status){
+    console.log(data);
+  });
 });

@@ -24,14 +24,14 @@
 	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Ajouter</button>
 	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelAll" id="buttonDelAll">Supprimer</button>
 	<div class="dropdown">
-	  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-	   Télécharger les données
-	    <span class="caret"></span>
-	  </button>
-	  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-	    <li><a href="pdf/documents" target="_blank">PDF</a></li>
-	    <li><a href="csv/documents" download="documents.csv">CSV</a></li>
-	  </ul>
+		<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			Télécharger les données
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+			<li><a href="pdf/documents" target="_blank">PDF</a></li>
+			<li><a href="csv/documents" download="documents.csv">CSV</a></li>
+		</ul>
 	</div>
 </div>
 <br/>
@@ -86,7 +86,7 @@
 											<div class="form-group">
 												<label>Promotion</label>
 												<select class="form-control" name="promo">
-													<option value= "Toutes les promotions"></option>
+													<option value= "">Toutes les promotions</option>
 													<?php foreach ($promotions as $key => $promotion): ?>
 														<option value="<?php echo $promotion['id'] ?>" <?php if($promotion['id']==$document['promo']) echo 'selected=selected'?> > <?php echo $promotion['libelle'] ?></option>
 													<?php endforeach; ?>
@@ -98,7 +98,9 @@
 											</div>
 											<div class="form-group">
 												<label>Rang</label>
-												<input type="number" class="form-control" placeholder="Rang" name="rang" value="<?php echo $document['rang']; ?>" required>
+												<select class="form-control" name="rang">
+<!-- rang -->
+												</select>
 											</div>
 											<div class="form-group">
 												<label>Fichier</label>
@@ -163,7 +165,9 @@
 						</div>
 						<div class="form-group">
 							<label>Rang</label>
-							<input type="text" class="form-control" placeholder="Rang" name="rang" required>
+							<select class="form-control" name="rang">
+<!-- rang -->
+							</select>
 						</div>
 						<div class="form-group">
 							<label>Fichier</label>

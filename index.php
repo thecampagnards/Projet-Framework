@@ -78,5 +78,10 @@ dispatch('/pdf/:doc', function(){
 	$pdf->BasicTable($header,$datas,$width);
 	$pdf->Output();
 });
+
+//getnbdocumentbypromo
+dispatch('/documents/count/:promo', function(){
+	echo getNbDocumentsByPromo(params('promo'));
+});
 run();
 ?>
