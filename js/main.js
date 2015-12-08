@@ -4,28 +4,28 @@ $(document).ready( function () {
    "order": [[ 1, "asc" ]],
    "iDisplayLength": 50,
    "language": {
-      "sProcessing":     "Traitement en cours...",
-      "sSearch":         "Rechercher&nbsp;:",
-      "sLengthMenu":     "Afficher _MENU_ &eacute;l&eacute;ments",
-      "sInfo":           "Affichage de l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
-      "sInfoEmpty":      "Affichage de l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ment",
-      "sInfoFiltered":   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
-      "sInfoPostFix":    "",
-      "sLoadingRecords": "Chargement en cours...",
-      "sZeroRecords":    "Aucun &eacute;l&eacute;ment &agrave; afficher",
-      "sEmptyTable":     "Aucune donn&eacute;e disponible dans le tableau",
-      "oPaginate": {
-          "sFirst":      "Premier",
-          "sPrevious":   "Pr&eacute;c&eacute;dent",
-          "sNext":       "Suivant",
-          "sLast":       "Dernier"
-      },
-      "oAria": {
-          "sSortAscending":  ": activer pour trier la colonne par ordre croissant",
-          "sSortDescending": ": activer pour trier la colonne par ordre d&eacute;croissant"
-      }
+    "sProcessing":     "Traitement en cours...",
+    "sSearch":         "Rechercher&nbsp;:",
+    "sLengthMenu":     "Afficher _MENU_ &eacute;l&eacute;ments",
+    "sInfo":           "Affichage de l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+    "sInfoEmpty":      "Affichage de l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ment",
+    "sInfoFiltered":   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+    "sInfoPostFix":    "",
+    "sLoadingRecords": "Chargement en cours...",
+    "sZeroRecords":    "Aucun &eacute;l&eacute;ment &agrave; afficher",
+    "sEmptyTable":     "Aucune donn&eacute;e disponible dans le tableau",
+    "oPaginate": {
+      "sFirst":      "Premier",
+      "sPrevious":   "Pr&eacute;c&eacute;dent",
+      "sNext":       "Suivant",
+      "sLast":       "Dernier"
+    },
+    "oAria": {
+      "sSortAscending":  ": activer pour trier la colonne par ordre croissant",
+      "sSortDescending": ": activer pour trier la colonne par ordre d&eacute;croissant"
     }
-  });
+  }
+});
 
 // Listen for click on toggle checkbox
 $('#select-all').click(function(event) {   
@@ -45,11 +45,11 @@ $('#select-all').click(function(event) {
 
 //fonction liste item supp
 $('#buttonDelAll').click(function(event) {
-var values=[];   
+  var values=[];   
   $(':checkbox').each(function() {
     if(this.checked)
       values.push($(this).closest("td input[name='id']").val());
-    });
+  });
   $('#listDelAll').html('');
   $('input[name=ids]').val(values);
   $.each(values, function(index, value){
@@ -88,7 +88,11 @@ $( "#downloadcsv" ).click(function() {
 
 //requete http pour avoir le nombre de fichier d'une promo pour le rang
 $('select[name="promo"]').change(function() {
+  var rang = $(this).parent().parent();
+  rang.find('div select[name="rang"]').html('');
   $.get( "./documents/count/"+$(this).val(), function(data, status){
-    console.log(data);
+    for (var i = 0; i < data; i++) {
+      rang.find('div select[name="rang"]').append('<option value="'+i+'">'+i+'</option>');
+    };
   });
 });
