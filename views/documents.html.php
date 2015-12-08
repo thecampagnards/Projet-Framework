@@ -22,7 +22,7 @@
 <label>Actions</label>
 <div id="buttons-tab">
 	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Ajouter</button>
-	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelAll">Supprimer</button>
+	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelAll" id="buttonDelAll">Supprimer</button>
 	<div class="dropdown">
 	  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 	   Télécharger les données
@@ -187,7 +187,11 @@
 					<h4 class="modal-title" id="myModalLabel">Voulez-vous supprimer le(s) document(s) suivant(s) ?</h4>
 				</div>
 				<form class="form-horizontal" action="documents" method="POST">
+					<input type="hidden" name="action" value="deletes">
+					<input type="hidden" name="ids">
 					<div class="modal-body">
+						<ul id="listDelAll">
+						</ul>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>

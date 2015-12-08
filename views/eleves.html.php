@@ -1,22 +1,19 @@
 <!--Alertes pour affichers les resultats des actions-->
-<div id="ban">
-	<div class="alert alert-success">
-		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		<strong>Success!</strong> This alert box could indicate a successful or positive action.
-	</div>
-	<div class="alert alert-warning">
-		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		<strong>Warning!</strong> This alert box could indicate a successful or positive action.
-	</div>
-	<div class="alert alert-danger">
-		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		<strong>Danger!</strong> This alert box could indicate a successful or positive action.
-	</div>
-</div>
+<?php if(isset($SUCCESS) && $SUCCESS): ?>
+  <div class="alert alert-success">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Mise à jour :</strong> Les élèves ont bien été mise à jour.
+  </div>
+<?php elseif(isset($SUCCESS) && !$SUCCESS): ?>
+  <div class="alert alert-danger">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Erreur :</strong> Il y a eu un problème lors de la mise à jour.
+  </div>
+<?php endif ?>
 
 <div id="buttons-tab">
 	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Ajouter</button>
-	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelAll">Supprimer</button>
+	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelAll" id="buttonDelAll">Supprimer</button>
 	<div class="dropdown">
 	  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 	   Télécharger les données
@@ -55,7 +52,7 @@
 					<?php foreach ($eleves as $key => $eleve): ?>
 					<tr>
 						<td><input type="checkbox" value="<?php echo $eleve['id']; ?>" name="id"></td>
-						<td><?php echo $eleve['identifiant']; ?></td>
+						<td><?php echo $eleve['identifiant']; ?> </td>
 						<td><?php echo $eleve['nom_fils']; ?></td>
 						<td><?php echo $eleve['prenom_fils']; ?></td>
 						<td><?php echo $eleve['ddn_fils']; ?></td>
@@ -80,9 +77,10 @@
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 									<h4 class="modal-title" id="myModalLabel">Modifier le eleve <?php echo $eleve['identifiant']; ?></h4>
 								</div>
-								<div class="modal-body">
-									<form class="form-horizontal" action="eleves" method="POST" enctype="multipart/form-data">
-										<input type="hidden" name="action" value="add">
+								<form class="form-horizontal" action="eleves" method="POST">
+									<div class="modal-body">
+										<input type="hidden" name="id" value="<?php echo $eleve['id']; ?>">
+										<input type="hidden" name="action" value="edit">
 										<div class="form-group">
 											<label for="InputRang">Identifiant ENT</label>
 											<input type="text" class="form-control" id="InputRang" placeholder="Identifiant" name="identifiant" value="<?php echo $eleve['identifiant']; ?>">
@@ -107,12 +105,13 @@
 											<label for="InputRang">Mail</label>
 											<input type="email" class="form-control" id="InputRang" placeholder="Adresse mail" name="courriel" value="<?php echo $eleve['courriel']; ?>">
 										</div>
-									</form>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-									<button type="button" class="btn btn-primary">Enregistrer</button>
-								</div>
+
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+										<button type="submit" class="btn btn-primary">Enregistrer</button>
+									</div>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -124,13 +123,14 @@
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 									<h4 class="modal-title" id="myModalLabel">Voulez vous supprimer l'élève <?php echo $eleve['prenom_fils'].' '.$eleve['nom_fils']; ?> ?</h4>
 								</div>
-								<form class="form-horizontal" action="documents" method="POST" enctype="multipart/form-data">
-									<input type="hidden" name="type" value="add">
+								<form class="form-horizontal" action="eleves" method="POST">
+									<input type="hidden" name="action" value="delete">
+									<input type="hidden" name="id" value="<?php echo $eleve['id']; ?>">
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+										<button type="submit" class="btn btn-danger">Supprimer</button>
+									</div>
 								</form>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-									<button type="button" class="btn btn-danger">Supprimer</button>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -145,8 +145,9 @@
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							<h4 class="modal-title" id="myModalLabel">Ajouter un élève</h4>
 						</div>
-						<div class="modal-body">
-							<form class="form-horizontal" action="eleves" method="POST" enctype="multipart/form-data">
+						<form class="form-horizontal" action="eleves" method="POST">
+							<div class="modal-body">
+
 								<input type="hidden" name="action" value="add">
 								<div class="form-group">
 									<label for="InputRang">Identifiant ENT</label>
@@ -172,12 +173,13 @@
 									<label for="InputRang">Mail</label>
 									<input type="email" class="form-control" id="InputRang" placeholder="Adresse mail" name="courriel">
 								</div>
-							</form>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-							<button type="submit" class="btn btn-primary">Ajouter</button>
-						</div>
+
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+								<button type="submit" class="btn btn-primary">Ajouter</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -190,7 +192,7 @@
               <h4 class="modal-title" id="myModalLabel">Voulez-vous supprimer le(s) élèves(s) suivant(s) ?</h4>
             </div>
             <form class="form-horizontal" action="eleves" method="POST">
-              <input type="hidden" name="type" value="deletes">
+              <input type="hidden" name="action" value="deletes">
               <input type="hidden" name="ids">
               <div class="modal-body">
                 <ul id="listDelAll">

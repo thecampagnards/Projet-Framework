@@ -10,21 +10,35 @@ function getPromotions() {
 }
 
 //fonction pour editer une promotion
-function editPromotion($id, $libelle) {
+function editPromotion($id_old,$id, $libelle) {
 	$bdd = connectDB();
 
-	$sql = 'UPDATE promotion SET
-	id = :id,
-	libelle = :libelle,
-	WHERE id = :id';
+	$sql = 'UPDATE document SET
+	promo = :id
+	WHERE promo = :id_old';
 
 	$stmt = $bdd->prepare($sql);
 
 	$stmt->bindParam(':id', $id, PDO::PARAM_STR);
-	$stmt->bindParam(':libelle', $libelle, PDO::PARAM_STR);
+	$stmt->bindParam(':id_old', $id_old, PDO::PARAM_STR);
 
 	if($stmt->execute() or die(var_dump($stmt->ErrorInfo()))) {
-		return true;
+		
+		$sql = 'UPDATE promotions SET
+		id = :id,
+		libelle = :libelle
+		WHERE id = :id_old';
+
+		$stmt = $bdd->prepare($sql);
+
+		$stmt->bindParam(':id', $id, PDO::PARAM_STR);
+		$stmt->bindParam(':id_old', $id_old, PDO::PARAM_STR);
+
+		$stmt->bindParam(':libelle', $libelle, PDO::PARAM_STR);
+
+		if($stmt->execute() or die(var_dump($stmt->ErrorInfo()))) {
+			return true;
+		}
 	}
 	return false;
 }
@@ -33,7 +47,7 @@ function editPromotion($id, $libelle) {
 function addPromotion($id, $libelle) {
 	$bdd = connectDB();
 
-	$sql = 'INSERT INTO promotion SET
+	$sql = 'INSERT INTO promotions SET
 	id = :id,
 	libelle = :libelle';
 
@@ -52,7 +66,7 @@ function addPromotion($id, $libelle) {
 function deletePromotion($id) {
 	$bdd = connectDB();
 
-	$sql = 'DELETE FROM promotion WHERE id = :id';
+	$sql = 'DELETE FROM promotions WHERE id = :id';
 	$stmt = $bdd->prepare($sql);
 	$stmt->bindParam(':id', $id, PDO::PARAM_STR);
 
