@@ -16,19 +16,26 @@ function editDocument($id, $rang, $promo, $libelle, $fichier) {
 	$sql = 'UPDATE document SET
 	id = :id,
 	rang = :rang,
-	libelle = :libelle,
-	fichier = :fichier
-	WHERE id = :id';
+	libelle = :libelle';
+	if(isset($fichier) && !empty($fichier)) if($fichier_chemin = addfichier($fichier)) {
+		$sql .= ', fichier = :fichier';
+	}
+	$sql .= ' WHERE id = :id';
 
 	$stmt = $bdd->prepare($sql);
+
+	if(isset($fichier_chemin) && !empty($fichier_chemin)) {
+		$stmt->bindParam(':fichier', $fichier_chemin, PDO::PARAM_STR);
+	}
 
 	$stmt->bindParam(':id', $id, PDO::PARAM_INT);
 	$stmt->bindParam(':rang', $rang, PDO::PARAM_INT);
 	$stmt->bindParam(':promo', $promo, PDO::PARAM_STR);
 	$stmt->bindParam(':libelle', $libelle, PDO::PARAM_STR);
-	$stmt->bindParam(':fichier', $fichier['name'], PDO::PARAM_STR);
 
 	if($stmt->execute() or die(var_dump($stmt->ErrorInfo()))) {
+		var_dump($stmt);
+
 		return true;
 	}
 	return false;
@@ -41,26 +48,21 @@ function addDocument($rang, $promo, $libelle, $fichier) {
 	$sql = 'INSERT INTO document SET
 	rang = :rang,
 	promo = :promo,
-	libelle = :libelle,
-	fichier = :fichier';
+	libelle = :libelle';
+
+	if(isset($fichier) && !empty($fichier)) if($fichier_chemin = addfichier($fichier)) {
+		$sql .= ', fichier = :fichier';
+	}
 
 	$stmt = $bdd->prepare($sql);
 
-	if(isset($fichier['name'])){
-		if(checkPromotion($promo) == 1) move_uploaded_file($_FILES['icone']['tmp_name'],'A12/'.$fichier['name']);
-		else if(checkPromotion($promo) == 2) move_uploaded_file($_FILES['icone']['tmp_name'],'A345/'.$fichier['name']);
-		else move_uploaded_file($_FILES['icone']['tmp_name'],$fichier['name']);
-		$fichier = $fichier['name'];
+	if(isset($fichier_chemin) && !empty($fichier_chemin)) {
+		$stmt->bindParam(':fichier', $fichier_chemin, PDO::PARAM_STR);
 	}
-
-	if(checkPromotion($promo) == 1) $fichier_db = 'A12/'.$fichier;
-	else if(checkPromotion($promo) == 2) $fichier_db = 'A345/'.$fichier;
-	else $fichier_db = $fichier;
 
 	$stmt->bindParam(':rang', $rang, PDO::PARAM_INT);
 	$stmt->bindParam(':promo', $promo, PDO::PARAM_STR);
 	$stmt->bindParam(':libelle', $libelle, PDO::PARAM_STR);
-	$stmt->bindParam(':fichier', $fichier_db, PDO::PARAM_STR);
 
 	if($stmt->execute() or die(var_dump($stmt->ErrorInfo()))) {
 		return true;
@@ -78,6 +80,22 @@ function deleteDocument($id) {
 
 	if($stmt->execute() or die(var_dump($stmt->ErrorInfo()))) {
 		return true;
+	}
+	return false;
+}
+
+//fonction pour ajouter un fichier
+function addFile($fichier,$promo) {
+
+	if ($fichier['error'] == UPLOAD_ERR_OK) {
+		$source = $fichier['tmp_name'];
+		$upload_dir = './';
+		if(strpos($promo,'A1') || strpos($promo,'A2')) $upload_dir .= 'A12/';
+		else if(strpos($promo,'A3') || strpos($promo,'A4')|| strpos($promo,'A5')) $upload_dir .= 'A345/';
+		if (file_exists($upload_dir) && is_writable($upload_dir)) {
+			move_uploaded_file($fichier['tmp_name'],FILES_DIR.$upload_dir.$fichier['name']);
+			return $upload_dir.$fichier['name'];
+		}
 	}
 	return false;
 }

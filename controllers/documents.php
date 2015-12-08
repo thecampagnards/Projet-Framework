@@ -5,6 +5,7 @@ function documents_controller(){
 
 	//si post
 	if(!empty($_POST)) {
+		if(!isset($_FILES['fichier']))$_FILES['fichier'] = NULL;
 
 		if($_POST['action'] == 'edit') $SUCCESS = editDocument($_POST['id'], $_POST['rang'], $_POST['promo'], $_POST['libelle'], $_FILES['fichier']);
 		elseif($_POST['action'] == 'add') $SUCCESS = addDocument($_POST['rang'], $_POST['promo'], $_POST['libelle'], $_FILES['fichier']);
