@@ -10,7 +10,7 @@
     <strong>Erreur :</strong> Il y a eu un problème lors de la mise à jour.
   </div>
 <?php endif ?>
-<div class="alert alert-info" role="alert"><strong>Informations : </strong>le csv doit être sous la forme id;libéllé; et la première ligne ne doit pas être vide.</div>
+<div class="alert alert-info" role="alert"><strong>Informations : </strong>le csv doit être sous la forme id_promo;libellé; et la première ligne ne doit pas être vide.</div>
 <form class="form-horizontal" action="promotions" method="POST" enctype="multipart/form-data">
   <input type="hidden" name="action" value="csv">
   <label for="InputFichier">Csv à importer</label>
@@ -54,7 +54,7 @@
         <tbody>
           <?php foreach ($promotions as $key => $promotion): ?>
           <tr>
-            <td><input type="checkbox" value="<?php echo $promotion['id']; ?>"></td>
+            <td><input class="IDDelAll" type="checkbox" value="<?php echo $promotion['id']; ?>"></td>
             <td><?php echo $promotion['id']; ?></td>
             <td class="dispDelAll"><?php echo $promotion['libelle']; ?></td>
             <td>
@@ -86,7 +86,7 @@
                       <label for="InputLibelle">Libelle<font color="red">*</font></label>
                       <input type="text" class="form-control" id="InputLibelle" placeholder="Libelle" name="libelle" value="<?php echo $promotion['libelle']; ?>">
                     </div>
-                    <p class="champsoblig">* champs obligatoire</p>
+                    <p class="champsoblig">* champs obligatoires</p>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
@@ -137,7 +137,7 @@
                   <label for="InputLibelle">Libelle<font color="red">*</font></label>
                   <input type="text" class="form-control" id="InputLibelle" placeholder="Libelle" name="libelle">
                 </div>
-                <p class="champsoblig">* champs obligatoire</p>
+                <p class="champsoblig">* champs obligatoires</p>
               </div>
 
               <div class="modal-footer">

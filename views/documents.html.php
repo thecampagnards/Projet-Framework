@@ -57,7 +57,7 @@
 				<tbody>
 					<?php foreach ($documents as $key => $document): ?>
 						<tr>
-							<td><input type="checkbox" value="<?php echo $document['id']; ?>"></td>
+							<td><input class="IDDelAll" type="checkbox" value="<?php echo $document['id']; ?>"></td>
 							<td><?php echo $document['rang']; ?></td>
 							<td><?php echo $document['promo']; ?></td>
 							<td><?php echo $document['libelle']; ?></td>
@@ -106,7 +106,7 @@
 												<label>Fichier<font color="red">*</font></label>
 												<input id="file" name="fichier" placeholder="Fichier" type="file" class="file-loading" value="<?php echo $document['fichier']; ?>" required>
 											</div>		
-											<p class="champsoblig">* champs obligatoire</p>						
+											<p class="champsoblig">* champs obligatoires</p>						
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
@@ -173,7 +173,7 @@
 							<label>Fichier<font color="red">*</font></label>
 							<input id="file-add" name="fichier" placeholder="Fichier" type="file" class="file-loading" required>
 						</div>
-						<p class="champsoblig">* champs obligatoire</p>			
+						<p class="champsoblig">* champs obligatoires</p>			
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
