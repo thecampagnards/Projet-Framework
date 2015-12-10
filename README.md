@@ -10,7 +10,9 @@ Création d'une interface d'administration pour l'application http://web.isen-br
 
 <ul>
 	<li>bug button disable apres annulation</li><br/>
-	<li>Test Document ajout/supp/modif</li>
+	<li>Test Document supp/modif</li>
+	<li>Supprimer fichier quand on supprime document</li>
+	<li>Deplacer fichier au changement de promotion</li>
 	<li>rang document</li><br/>
 	<li>telecharge donnée eleve id a ne pas prendre</li>
 	<li><strong>Revoir le cahier des charges !!</strong></li>

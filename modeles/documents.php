@@ -32,6 +32,7 @@ function editDocument($id, $rang, $promo, $libelle, $fichier) {
 	$sql = 'UPDATE document SET
 	id = :id,
 	rang = :rang,
+	promo = :promo,
 	libelle = :libelle';
 	if(isset($fichier) && !empty($fichier)) if($fichier_chemin = addFile($fichier,$promo)) {
 		$sql .= ', fichier = :fichier';

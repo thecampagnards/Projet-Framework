@@ -104,7 +104,7 @@
 										</div>
 										<div class="form-group">
 											<label for="InputRang">Date de naissance<font color="red">*</font></label>
-											<input type="date" class="form-control" id="InputRang" placeholder="Date de naissance" name="ddn_fils" value="">
+											<input type="date" class="form-control" id="InputRang" placeholder="Date de naissance" name="ddn_fils" value="<?php echo $eleve['ddn_fils']; ?>">
 										</div>
 										<div class="form-group">
 											<label for="InputRang">Téléphone<font color="red">*</font></label>
