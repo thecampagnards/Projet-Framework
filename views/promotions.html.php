@@ -70,13 +70,14 @@
                     <input type="hidden" name="id_old" value="<?php echo $promotion['id']; ?>">
                     <input type="hidden" name="action" value="edit">
                     <div class="form-group">
-                      <label for="InputPromotion">Promotion</label>
+                      <label for="InputPromotion">Promotion<font color="red">*</font></label>
                       <input type="text" class="form-control" id="InputPromotion" placeholder="Promotion" name="id" value="<?php echo $promotion['id']; ?>">
                     </div>
                     <div class="form-group">
-                      <label for="InputLibelle">Libelle</label>
+                      <label for="InputLibelle">Libelle<font color="red">*</font></label>
                       <input type="text" class="form-control" id="InputLibelle" placeholder="Libelle" name="libelle" value="<?php echo $promotion['libelle']; ?>">
                     </div>
+                    <p class="champsoblig">* champs obligatoire</p>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
@@ -120,14 +121,16 @@
               <div class="modal-body">
                 <input type="hidden" name="action" value="add">
                 <div class="form-group">
-                  <label for="InputPromotion">Promotion</label>
+                  <label for="InputPromotion">Promotion<font color="red">*</font></label>
                   <input type="text" class="form-control" id="InputPromotion" placeholder="Promotion" name="id">
                 </div>
                 <div class="form-group">
-                  <label for="InputLibelle">Libelle</label>
+                  <label for="InputLibelle">Libelle<font color="red">*</font></label>
                   <input type="text" class="form-control" id="InputLibelle" placeholder="Libelle" name="libelle">
                 </div>
+                <p class="champsoblig">* champs obligatoire</p>
               </div>
+
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
                 <button type="submit" class="btn btn-primary">Ajouter</button>

@@ -84,7 +84,7 @@
 											<input type="hidden" name="id" value="<?php echo $document['id']; ?>">
 											<input type="hidden" name="action" value="edit">
 											<div class="form-group">
-												<label>Promotion</label>
+												<label>Promotion<font color="red">*</font></label>
 												<select class="form-control" name="promo">
 													<option value= "">Toutes les promotions</option>
 													<?php foreach ($promotions as $key => $promotion): ?>
@@ -93,19 +93,20 @@
 												</select>
 											</div>
 											<div class="form-group">
-												<label>Libelle</label>
+												<label>Libelle<font color="red">*</font></label>
 												<input type="text" class="form-control" placeholder="Libelle" name="libelle" value="<?php echo $document['libelle']; ?>" required>
 											</div>
 											<div class="form-group">
-												<label>Rang</label>
+												<label>Rang<font color="red">*</font></label>
 												<select class="form-control" name="rang">
 <!-- rang -->
 												</select>
 											</div>
 											<div class="form-group">
-												<label>Fichier</label>
+												<label>Fichier<font color="red">*</font></label>
 												<input id="file" name="fichier" placeholder="Fichier" type="file" class="file-loading file" value="<?php echo $document['fichier']; ?>" required>
-											</div>								
+											</div>		
+											<p class="champsoblig">* champs obligatoire</p>						
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
@@ -151,7 +152,7 @@
 					<div class="modal-body">					
 						<input type="hidden" name="action" value="add">
 						<div class="form-group">
-							<label>Promotion</label>
+							<label>Promotion<font color="red">*</font></label>
 							<select class="form-control" name="promo">
 								<option value= "Toutes les promotions"></option>
 								<?php foreach ($promotions as $key => $promotion): ?>
@@ -160,19 +161,20 @@
 							</select>
 						</div>
 						<div class="form-group">
-							<label>Libelle</label>
+							<label>Libelle<font color="red">*</font></label>
 							<input type="text" class="form-control" placeholder="Libelle" name="libelle" required>
 						</div>
 						<div class="form-group">
-							<label>Rang</label>
+							<label>Rang<font color="red">*</font></label>
 							<select class="form-control" name="rang">
 <!-- rang -->
 							</select>
 						</div>
 						<div class="form-group">
-							<label>Fichier</label>
+							<label>Fichier<font color="red">*</font></label>
 							<input name="fichier" placeholder="Fichier" type="file" class="file-loading" required>
-						</div>				
+						</div>
+						<p class="champsoblig">* champs obligatoire</p>			
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>

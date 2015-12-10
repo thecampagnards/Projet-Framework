@@ -82,30 +82,30 @@
 										<input type="hidden" name="id" value="<?php echo $eleve['id']; ?>">
 										<input type="hidden" name="action" value="edit">
 										<div class="form-group">
-											<label for="InputRang">Identifiant ENT</label>
+											<label for="InputRang">Identifiant ENT<font color="red">*</font></label>
 											<input type="text" class="form-control" id="InputRang" placeholder="Identifiant" name="identifiant" value="<?php echo $eleve['identifiant']; ?>">
 										</div>
 										<div class="form-group">
-											<label for="InputRang">Nom</label>
+											<label for="InputRang">Nom<font color="red">*</font></label>
 											<input type="text" class="form-control" id="InputRang" placeholder="Nom" name="nom_fils" value="<?php echo $eleve['nom_fils']; ?>">
 										</div>
 										<div class="form-group">
-											<label for="InputRang">Prénom</label>
+											<label for="InputRang">Prénom<font color="red">*</font></label>
 											<input type="text" class="form-control" id="InputRang" placeholder="Prénom" name="prenom_fils" value="<?php echo $eleve['prenom_fils']; ?>">
 										</div>
 										<div class="form-group">
-											<label for="InputRang">Date de naissance</label>
+											<label for="InputRang">Date de naissance<font color="red">*</font></label>
 											<input type="date" class="form-control" id="InputRang" placeholder="Date de naissance" name="ddn_fils" value="">
 										</div>
 										<div class="form-group">
-											<label for="InputRang">Téléphone</label>
+											<label for="InputRang">Téléphone<font color="red">*</font></label>
 											<input type="tel" class="form-control" id="InputRang" placeholder="Téléphone mobile" name="tel_mobile" value="<?php echo $eleve['tel_mobile']; ?>">
 										</div>
 										<div class="form-group">
-											<label for="InputRang">Mail</label>
+											<label for="InputRang">Mail<font color="red">*</font></label>
 											<input type="email" class="form-control" id="InputRang" placeholder="Adresse mail" name="courriel" value="<?php echo $eleve['courriel']; ?>">
 										</div>
-
+										<p class="champsoblig">* champs obligatoire</p>
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
@@ -150,30 +150,30 @@
 
 								<input type="hidden" name="action" value="add">
 								<div class="form-group">
-									<label for="InputRang">Identifiant ENT</label>
+									<label for="InputRang">Identifiant ENT<font color="red">*</font></label>
 									<input type="text" class="form-control" id="InputRang" placeholder="Identifiant" name="identifiant">
 								</div>
 								<div class="form-group">
-									<label for="InputRang">Nom</label>
+									<label for="InputRang">Nom<font color="red">*</font></label>
 									<input type="text" class="form-control" id="InputRang" placeholder="Nom" name="nom_fils">
 								</div>
 								<div class="form-group">
-									<label for="InputRang">Prénom</label>
+									<label for="InputRang">Prénom<font color="red">*</font></label>
 									<input type="text" class="form-control" id="InputRang" placeholder="Prénom" name="prenom_fils">
 								</div>
 								<div class="form-group">
-									<label for="InputRang">Date de naissance</label>
+									<label for="InputRang">Date de naissance<font color="red">*</font></label>
 									<input type="date" class="form-control" id="InputRang" placeholder="Date de naissance" name="ddn_fils">
 								</div>
 								<div class="form-group">
-									<label for="InputRang">Téléphone</label>
+									<label for="InputRang">Téléphone<font color="red">*</font></label>
 									<input type="tel" class="form-control" id="InputRang" placeholder="Téléphone mobile" name="tel_mobile">
 								</div>
 								<div class="form-group">
-									<label for="InputRang">Mail</label>
+									<label for="InputRang">Mail<font color="red">*</font></label>
 									<input type="email" class="form-control" id="InputRang" placeholder="Adresse mail" name="courriel">
 								</div>
-
+								<p class="champsoblig">* champs obligatoire</p>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
