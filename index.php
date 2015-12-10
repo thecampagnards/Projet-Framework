@@ -82,8 +82,9 @@ dispatch('/pdf/:doc', function(){
 //getnbdocumentbypromo
 dispatch('/documents/count/:promo', function(){
 	$promo = params('promo');
-	if($promo == 'null') $promo = '';
+	if(empty(params('promo'))) $promo = '';
 	echo getNbDocumentsByPromo($promo);
 });
+
 run();
 ?>

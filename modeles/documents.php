@@ -10,7 +10,7 @@ function getDocuments() {
 }
 
 //fonction pour récupérer les documents
-function getNbDocumentsByPromo($promo) {
+function getNbDocumentsByPromo($promo = '') {
 	$bdd = connectDB();
 	$sql = 'SELECT COUNT(promo) FROM document WHERE promo = :promo GROUP BY promo';
 	$res = $bdd->prepare($sql);
@@ -22,13 +22,13 @@ function getNbDocumentsByPromo($promo) {
 //fonction pour editer un document
 function editDocument($id, $rang, $promo, $libelle, $fichier) {
 	$bdd = connectDB();
-
+/*
 	$sql = 'SELECT * FROM document WHERE id = :id';
 	$res = $bdd->prepare($sql);
 	$res->bindParam(':id', $id, PDO::PARAM_INT);
 	$res->execute();
-	var_dump($res->fetchAll(PDO::FETCH_ASSOC));
-
+	var_dump($res->fetch(PDO::FETCH_ASSOC));
+*/
 	$sql = 'UPDATE document SET
 	id = :id,
 	rang = :rang,
