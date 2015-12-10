@@ -12,6 +12,10 @@ function promotions_controller(){
 			if(isset($_FILES['csv']) && !empty($_FILES['csv']) && $_FILES["csv"]["type"] != "application/vnd.ms-excel"){
 				$handle = fopen($_FILES['csv']['tmp_name'], "r");
 				while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+					if(count($data) != 2){
+						$SUCCESS = false;
+						break;
+					}
 					$SUCCESS = addPromotion($data[0], $data[1]);
 				}
 			}			

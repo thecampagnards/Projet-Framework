@@ -10,7 +10,7 @@
 		<strong>Erreur :</strong> Il y a eu un problème lors de la mise à jour.
 	</div>
 <?php endif ?>
-<div class="alert alert-info" role="alert"><strong>Informations : </strong>le csv doit être sous la forme rang;promo;libelle;fichier; et la première ligne ne doit pas être vide.</div>
+<div class="alert alert-info" role="alert"><strong>Informations : </strong>le csv doit être sous la forme rang;promo;libelle;fichier; et la première ligne ne doit pas être vide. Puis ajouter le fichier manuellement dans le dossier des documents.</div>
 <form class="form-horizontal" action="documents" method="POST" enctype="multipart/form-data">
 	<input type="hidden" name="action" value="csv">
 	<label for="InputFichier">Csv à importer</label>
@@ -103,8 +103,8 @@
 												</select>
 											</div>
 											<div class="form-group">
-												<label>Fichier<font color="red">*</font></label>
-												<input id="file" name="fichier" placeholder="Fichier" type="file" class="file-loading" value="<?php echo $document['fichier']; ?>" required>
+												<label>Fichier</label>
+												<input name="fichier" placeholder="Fichier" type="file" class="file-loading">
 											</div>		
 											<p class="champsoblig">* champs obligatoires</p>						
 										</div>

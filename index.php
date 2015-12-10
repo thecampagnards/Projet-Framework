@@ -43,7 +43,7 @@ dispatch('/pdf/:doc', function(){
 	require('lib/fpdf/fpdf.php');
 	class PDF extends FPDF{
 		function BasicTable($header, $data, $width){
-			$this->SetFont('','B');
+			$this->SetFont('','B',6);
 			foreach($header as $col) $this->Cell($width,7,utf8_decode($col),1);
 			$this->Ln();
 			$this->SetFont('');
@@ -70,9 +70,9 @@ dispatch('/pdf/:doc', function(){
 		$width = 31;
 	}
 	elseif(params('doc') == 'promotions'){
-		$header = array('ID', 'Identitfiant', 'Nom Fils', 'Prenom Fils', 'DDN Fils', 'Téléphone', 'Courriel', 'Date','IP');
-		$datas = getPromotion();
-		$width = 31;
+		$header = array('ID Promo', 'Libelle');
+		$datas = getPromotions();
+		$width = 100;
 	}
 
 	$pdf->BasicTable($header,$datas,$width);

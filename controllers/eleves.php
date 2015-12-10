@@ -13,6 +13,10 @@ function eleves_controller(){
 			if(isset($_FILES['csv']) && !empty($_FILES['csv']) && $_FILES["csv"]["type"] != "application/vnd.ms-excel"){
 				$handle = fopen($_FILES['csv']['tmp_name'], "r");
 				while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+					if(count($data) != 6){
+						$SUCCESS = false;
+						break;
+					}
 					$SUCCESS = addEleve($data[0], $data[1], $data[2], $data[3], $data[4], $data[5]);
 				}
 			}			

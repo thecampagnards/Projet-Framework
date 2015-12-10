@@ -23,6 +23,12 @@ function getNbDocumentsByPromo($promo) {
 function editDocument($id, $rang, $promo, $libelle, $fichier) {
 	$bdd = connectDB();
 
+	$sql = 'SELECT * FROM document WHERE id = :id';
+	$res = $bdd->prepare($sql);
+	$res->bindParam(':id', $id, PDO::PARAM_INT);
+	$res->execute();
+	var_dump($res->fetchAll(PDO::FETCH_ASSOC));
+
 	$sql = 'UPDATE document SET
 	id = :id,
 	rang = :rang,
@@ -55,13 +61,6 @@ function editDocument($id, $rang, $promo, $libelle, $fichier) {
 function addDocument($rang, $promo, $libelle, $fichier) {
 
 	$bdd = connectDB();
-
-	$sql = 'SELECT * FROM document WHERE promo = :promo AND rang = :rang';
-	$res = $bdd->prepare($sql);
-	$res->bindParam(':rang', $rang, PDO::PARAM_INT);
-	$res->bindParam(':promo', $promo, PDO::PARAM_STR);
-	$res->execute();
-	var_dump($res->fetchAll(PDO::FETCH_ASSOC));
 
 	$sql = 'INSERT INTO document SET
 	rang = :rang,
@@ -108,8 +107,9 @@ function addFile($fichier,$promo) {
 	if ($fichier['error'] == UPLOAD_ERR_OK) {
 		$source = $fichier['tmp_name'];
 		$upload_dir = '';
-		if(strpos($promo,'A1') || strpos($promo,'A2')) $upload_dir .= 'A12/';
-		else if(strpos($promo,'A3') || strpos($promo,'A4')|| strpos($promo,'A5')) $upload_dir .= 'A345/';
+
+		if(strpos($promo,'A1') || strpos($promo,'A2')) $upload_dir = 'A12/';
+		else if(strpos($promo,'A3') || strpos($promo,'A4')|| strpos($promo,'A5')) $upload_dir = 'A345/';
 		if (file_exists(FILES_DIR.$upload_dir) && is_writable(FILES_DIR.$upload_dir)) {
 			move_uploaded_file($fichier['tmp_name'],FILES_DIR.$upload_dir.$fichier['name']);
 			return $upload_dir.$fichier['name'];
