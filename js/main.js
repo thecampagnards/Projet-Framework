@@ -56,7 +56,14 @@ $('#buttonDelAll').click(function(event) {
     if(value !== undefined)
       $('#listDelAll').append("<li>"+value+"</li>");
   });
-});   
+}); 
+
+$(':checkbox').click(function() {
+  $('#buttonDelAll').attr('disabled','disabled');
+  $(':checkbox').each(function() {
+    if(this.checked) $('#buttonDelAll').removeAttr('disabled');
+  });
+});
 
 $(document).on('ready', function() {
   $("#InputFichier").fileinput({

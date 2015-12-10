@@ -13,7 +13,7 @@
 
 <div id="buttons-tab">
 	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Ajouter</button>
-	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelAll" id="buttonDelAll">Supprimer</button>
+	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelAll" id="buttonDelAll" disabled="disabled">Supprimer</button>
 	<div class="dropdown">
 	  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 	   Télécharger les données
