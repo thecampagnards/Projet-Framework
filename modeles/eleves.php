@@ -10,7 +10,7 @@ function getEleves() {
 }
 function getGraphEleves(){
   $bdd = connectDB();
-  $sql = "SELECT date, COUNT(*) AS value, DATE_FORMAT(date,'%Y-%m-%d') AS date_analytique FROM data GROUP BY date";
+  $sql = "SELECT date, COUNT(*) AS value, DATE_FORMAT(date,'%Y-%m-%d') AS date_analytique FROM data GROUP BY date_analytique";
   $res = $bdd->prepare($sql);
   $res->execute();
   return $res->fetchAll(PDO::FETCH_ASSOC);

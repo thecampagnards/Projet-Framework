@@ -78,7 +78,7 @@ $(document).on('ready', function() {
 });
 
 $(document).on('ready', function() {
-  $("#file").fileinput({
+  $("input[type='file']").fileinput({
     allowedFileExtensions : ['pdf', 'doc', 'docx'],
     language: 'fr',
     maxFileSize: 10000,

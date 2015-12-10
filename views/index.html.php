@@ -72,7 +72,6 @@ $(function() {
 var result = [];
 var previous = null;
 var data = <?php echo(json_encode($graph_eleves)) ?>;
-console.log(data);
 for (var i in data) {
   var item = data[i];
   if (previous != null){
