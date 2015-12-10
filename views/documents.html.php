@@ -61,7 +61,7 @@
 							<td><?php echo $document['rang']; ?></td>
 							<td><?php echo $document['promo']; ?></td>
 							<td><?php echo $document['libelle']; ?></td>
-							<td class="dispDelAll"><?php echo $document['fichier']; ?></td>
+							<td class="dispDelAll"><a target="_blank" href="<?php echo FILES_DIR.$document['fichier']; ?>"><?php echo $document['fichier']; ?></a></td>
 							<td>
 								<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModalMod<?php echo $document['id']; ?>" aria-label="<?php echo $document['id']; ?>">
 									<span class="glyphicon  glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -98,13 +98,13 @@
 											</div>
 											<div class="form-group">
 												<label>Rang<font color="red">*</font></label>
+												<span promo="<?php echo $document['promo']; ?>" rang="<?php echo $document['rang']; ?>"></span>
 												<select class="form-control" name="rang">
-												<!-- rang -->
 												</select>
 											</div>
 											<div class="form-group">
 												<label>Fichier<font color="red">*</font></label>
-												<input id="file" name="fichier" placeholder="Fichier" type="file" class="file-loading file" value="<?php echo $document['fichier']; ?>" required>
+												<input id="file" name="fichier" placeholder="Fichier" type="file" class="file-loading" value="<?php echo $document['fichier']; ?>" required>
 											</div>		
 											<p class="champsoblig">* champs obligatoire</p>						
 										</div>
@@ -154,7 +154,7 @@
 						<div class="form-group">
 							<label>Promotion<font color="red">*</font></label>
 							<select class="form-control" name="promo">
-								<option value= "Toutes les promotions"></option>
+								<option value= "">Toutes les promotions</option>
 								<?php foreach ($promotions as $key => $promotion): ?>
 									<option value="<?php echo $promotion['id'] ?>" ><?php echo $promotion['libelle'] ?></option>
 								<?php endforeach; ?>
@@ -167,12 +167,11 @@
 						<div class="form-group">
 							<label>Rang<font color="red">*</font></label>
 							<select class="form-control" name="rang">
-<!-- rang -->
 							</select>
 						</div>
 						<div class="form-group">
 							<label>Fichier<font color="red">*</font></label>
-							<input name="fichier" placeholder="Fichier" type="file" class="file-loading" required>
+							<input id="file-add" name="fichier" placeholder="Fichier" type="file" class="file-loading" required>
 						</div>
 						<p class="champsoblig">* champs obligatoire</p>			
 					</div>
