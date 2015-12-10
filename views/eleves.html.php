@@ -11,7 +11,7 @@
   </div>
 <?php endif ?>
 <div class="alert alert-info" role="alert"><strong>Informations : </strong>le csv doit être sous la forme identifiant;nom;prenom;datedenaissance;telephone;mail; et la première ligne ne doit pas être vide.</div>
-<form class="form-horizontal" action="documents" method="POST" enctype="multipart/form-data">
+<form class="form-horizontal" action="eleves" method="POST" enctype="multipart/form-data">
 	<input type="hidden" name="action" value="csv">
 	<label for="InputFichier">Csv à importer</label>
 	<input id="InputFichier" name="csv" placeholder="CSV" type="file" class="file-loading" required>

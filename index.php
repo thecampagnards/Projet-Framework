@@ -22,7 +22,7 @@ dispatch('/csv/:doc', function(){
 	if(params('doc')){
 		if(params('doc') == 'documents') $datas = getDocuments();
 		elseif(params('doc') == 'eleves') $datas = getEleves();
-		elseif(params('doc') == 'promotions') $datas = getPromotion();
+		elseif(params('doc') == 'promotions') $datas = getPromotions();
 
 		if(isset($datas)){
 			header("Content-type: text/csv");

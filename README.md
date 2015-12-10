@@ -17,5 +17,8 @@ Création d'une interface d'administration pour l'application http://web.isen-br
 	<li>Variable php pour le dossier des documents</li>
 	<li>pdf ouvrable de la page document</li><br/>
 	<li>csv a importer pour promo et eleve et a replacer</li>
+	<li>suppresion multiple</li>
+	<li>cvs ; bug</li>
+	<li>telecharge donnée eleve id a ne pas prendre</li>
 	<li><strong>Revoir le cahier des charges !!</strong></li>
 </ul>
