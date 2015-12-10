@@ -27,7 +27,7 @@ function editDocument($id, $rang, $promo, $libelle, $fichier) {
 	id = :id,
 	rang = :rang,
 	libelle = :libelle';
-	if(isset($fichier) && !empty($fichier)) if($fichier_chemin = addfichier($fichier)) {
+	if(isset($fichier) && !empty($fichier)) if($fichier_chemin = addFile($fichier,$promo)) {
 		$sql .= ', fichier = :fichier';
 	}
 	$sql .= ' WHERE id = :id';
@@ -53,14 +53,22 @@ function editDocument($id, $rang, $promo, $libelle, $fichier) {
 
 //fonction pour ajouter un document
 function addDocument($rang, $promo, $libelle, $fichier) {
+
 	$bdd = connectDB();
+
+	$sql = 'SELECT * FROM document WHERE promo = :promo AND rang = :rang';
+	$res = $bdd->prepare($sql);
+	$res->bindParam(':rang', $rang, PDO::PARAM_INT);
+	$res->bindParam(':promo', $promo, PDO::PARAM_STR);
+	$res->execute();
+	var_dump($res->fetchAll(PDO::FETCH_ASSOC));
 
 	$sql = 'INSERT INTO document SET
 	rang = :rang,
 	promo = :promo,
 	libelle = :libelle';
 
-	if(isset($fichier) && !empty($fichier)) if($fichier_chemin = addfichier($fichier)) {
+	if(isset($fichier) && !empty($fichier)) if($fichier_chemin = addFile($fichier,$promo)) {
 		$sql .= ', fichier = :fichier';
 	}
 

@@ -72,7 +72,18 @@ $(document).on('ready', function() {
 
 $(document).on('ready', function() {
   $("#file").fileinput({
-    allowedFileExtensions : ['csv'],
+    allowedFileExtensions : ['pdf', 'doc', 'docx'],
+    language: 'fr',
+    maxFileSize: 10000,
+    showRemove: false,
+    showUpload: false,
+    maxFileCount: 1
+  });
+});
+
+$(document).on('ready', function() {
+  $("#file-add").fileinput({
+    allowedFileExtensions : ['pdf', 'doc', 'docx'],
     language: 'fr',
     maxFileSize: 10000,
     required: true,
@@ -82,16 +93,22 @@ $(document).on('ready', function() {
   });
 });
 
-$( "#downloadcsv" ).click(function() {
-  window.location = 'routes.ods';
-});
-
 //requete http pour avoir le nombre de fichier d'une promo pour le rang
 $('select[name="promo"]').change(function() {
+
   var rang = $(this).parent().parent();
   rang.find('div select[name="rang"]').html('');
+
+  var value_rang = rang.find('div span').attr('rang');
+  var value_promo = rang.find('div span').attr('promo');
+
+  var promo = $(this);
+  if($(this).val() === '' ) $(this).val("all");
+  console.log($(this).val());
+
   $.get( "./documents/count/"+$(this).val(), function(data, status){
-    for (var i = 0; i < data; i++) {
+    if(promo.val() !== value_promo) data ++;
+    for (var i = 1; i <= data; i++) {
       rang.find('div select[name="rang"]').append('<option value="'+i+'">'+i+'</option>');
     };
   });
