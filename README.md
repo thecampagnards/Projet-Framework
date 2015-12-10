@@ -9,7 +9,7 @@ Création d'une interface d'administration pour l'application http://web.isen-br
 <h1>Tâches</h1>
 
 <ul>
-	<li>Changer id modal suppresion multiple</li>
+	<li>bug button disable apres annulation</li>
 	<li>bug tableau stat eleve</li><br/>
 	<li>Document ajout/supp/modif</li>
 	<li>Emplacement des documents</li>

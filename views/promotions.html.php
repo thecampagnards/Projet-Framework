@@ -10,6 +10,15 @@
     <strong>Erreur :</strong> Il y a eu un problème lors de la mise à jour.
   </div>
 <?php endif ?>
+<div class="alert alert-info" role="alert"><strong>Informations : </strong>le csv doit être sous la forme id;libéllé; et la première ligne ne doit pas être vide.</div>
+<form class="form-horizontal" action="documents" method="POST" enctype="multipart/form-data">
+  <input type="hidden" name="action" value="csv">
+  <label for="InputFichier">Csv à importer</label>
+  <input id="InputFichier" name="csv" placeholder="CSV" type="file" class="file-loading" required>
+  <br/>
+  <button type="submit" class="btn btn-primary">Enregistrer</button>
+</form>
+<br/>
 
 <div id="buttons-tab">
   <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Ajouter</button>
@@ -45,9 +54,9 @@
         <tbody>
           <?php foreach ($promotions as $key => $promotion): ?>
           <tr>
-            <td><input type="checkbox" value="<?php echo $promotion['id']; ?>" name='id'></td>
+            <td><input type="checkbox" value="<?php echo $promotion['id']; ?>"></td>
             <td><?php echo $promotion['id']; ?></td>
-            <td><?php echo $promotion['libelle']; ?></td>
+            <td class="dispDelAll"><?php echo $promotion['libelle']; ?></td>
             <td>
              <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModalMod<?php echo $promotion['id']; ?>" aria-label="<?php echo $promotion['id']; ?>">
                <span class="glyphicon  glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>

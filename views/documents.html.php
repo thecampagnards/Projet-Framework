@@ -57,11 +57,11 @@
 				<tbody>
 					<?php foreach ($documents as $key => $document): ?>
 						<tr>
-							<td><input type="checkbox" value="<?php echo $document['id']; ?>" name='id'></td>
+							<td><input type="checkbox" value="<?php echo $document['id']; ?>"></td>
 							<td><?php echo $document['rang']; ?></td>
 							<td><?php echo $document['promo']; ?></td>
 							<td><?php echo $document['libelle']; ?></td>
-							<td><?php echo $document['fichier']; ?></td>
+							<td class="dispDelAll"><?php echo $document['fichier']; ?></td>
 							<td>
 								<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModalMod<?php echo $document['id']; ?>" aria-label="<?php echo $document['id']; ?>">
 									<span class="glyphicon  glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -99,7 +99,7 @@
 											<div class="form-group">
 												<label>Rang<font color="red">*</font></label>
 												<select class="form-control" name="rang">
-<!-- rang -->
+												<!-- rang -->
 												</select>
 											</div>
 											<div class="form-group">

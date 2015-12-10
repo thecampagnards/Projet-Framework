@@ -48,7 +48,7 @@ $('#buttonDelAll').click(function(event) {
   var values=[];   
   $(':checkbox').each(function() {
     if(this.checked)
-      values.push($(this).closest("td input[name='id']").val());
+      values.push($(this).parent().parent().find(".dispDelAll").html());
   });
   $('#listDelAll').html('');
   $('input[name=ids]').val(values);
@@ -61,7 +61,7 @@ $('#buttonDelAll').click(function(event) {
 $(':checkbox').click(function() {
   $('#buttonDelAll').attr('disabled','disabled');
   $(':checkbox').each(function() {
-    if(this.checked) $('#buttonDelAll').removeAttr('disabled');
+    if(this.checked) $('#buttonDelAll').removeAttr('disabled'); 
   });
 });
 

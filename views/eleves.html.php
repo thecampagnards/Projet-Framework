@@ -10,6 +10,15 @@
     <strong>Erreur :</strong> Il y a eu un problème lors de la mise à jour.
   </div>
 <?php endif ?>
+<div class="alert alert-info" role="alert"><strong>Informations : </strong>le csv doit être sous la forme identifiant;nom;prenom;datedenaissance;telephone;mail; et la première ligne ne doit pas être vide.</div>
+<form class="form-horizontal" action="documents" method="POST" enctype="multipart/form-data">
+	<input type="hidden" name="action" value="csv">
+	<label for="InputFichier">Csv à importer</label>
+	<input id="InputFichier" name="csv" placeholder="CSV" type="file" class="file-loading" required>
+	<br/>
+	<button type="submit" class="btn btn-primary">Enregistrer</button>
+</form>
+<br/>
 
 <div id="buttons-tab">
 	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Ajouter</button>
@@ -52,7 +61,7 @@
 					<?php foreach ($eleves as $key => $eleve): ?>
 					<tr>
 						<td><input type="checkbox" value="<?php echo $eleve['id']; ?>" name="id"></td>
-						<td><?php echo $eleve['identifiant']; ?> </td>
+						<td class="dispDelAll"><?php echo $eleve['identifiant']; ?> </td>
 						<td><?php echo $eleve['nom_fils']; ?></td>
 						<td><?php echo $eleve['prenom_fils']; ?></td>
 						<td><?php echo $eleve['ddn_fils']; ?></td>
@@ -184,28 +193,28 @@
 				</div>
 			</div>
 			<!-- Modal Supprimer-->
-      <div class="modal fade" id="myModalDelAll" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content col-md-12">
-            <div class="modal-header">
-              <button type="button" class= "close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Voulez-vous supprimer le(s) élèves(s) suivant(s) ?</h4>
-            </div>
-            <form class="form-horizontal" action="eleves" method="POST">
-              <input type="hidden" name="action" value="deletes">
-              <input type="hidden" name="ids">
-              <div class="modal-body">
-                <ul id="listDelAll">
-                </ul>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                <button type="submit" class="btn btn-danger">Supprimer</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+			<div class="modal fade" id="myModalDelAll" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content col-md-12">
+						<div class="modal-header">
+							<button type="button" class= "close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">Voulez-vous supprimer le(s) élèves(s) suivant(s) ?</h4>
+						</div>
+						<form class="form-horizontal" action="eleves" method="POST">
+							<input type="hidden" name="action" value="deletes">
+							<input type="hidden" name="ids">
+							<div class="modal-body">
+								<ul id="listDelAll">
+								</ul>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+								<button type="submit" class="btn btn-danger">Supprimer</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
