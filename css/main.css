@@ -52,7 +52,11 @@
     margin-top: 10px;
 }*/
 
-
+.champsoblig{
+    color: red; 
+    font-size: 10px;
+    text-align: right;
+}
 .file-preview-frame{
     width: 95%;
 }

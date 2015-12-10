@@ -22,7 +22,7 @@
 <label>Actions</label>
 <div id="buttons-tab">
 	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Ajouter</button>
-	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelAll" id="buttonDelAll">Supprimer</button>
+	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelAll" id="buttonDelAll" disabled="disabled">Supprimer</button>
 	<div class="dropdown">
 		<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 			Télécharger les données
@@ -57,11 +57,11 @@
 				<tbody>
 					<?php foreach ($documents as $key => $document): ?>
 						<tr>
-							<td><input type="checkbox" value="<?php echo $document['id']; ?>" name='id'></td>
+							<td><input type="checkbox" value="<?php echo $document['id']; ?>"></td>
 							<td><?php echo $document['rang']; ?></td>
 							<td><?php echo $document['promo']; ?></td>
 							<td><?php echo $document['libelle']; ?></td>
-							<td><a target="_blank" href="<?php echo FILES_DIR.$document['fichier']; ?>"><?php echo $document['fichier']; ?></a></td>
+							<td class="dispDelAll"><a target="_blank" href="<?php echo FILES_DIR.$document['fichier']; ?>"><?php echo $document['fichier']; ?></a></td>
 							<td>
 								<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModalMod<?php echo $document['id']; ?>" aria-label="<?php echo $document['id']; ?>">
 									<span class="glyphicon  glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -84,7 +84,7 @@
 											<input type="hidden" name="id" value="<?php echo $document['id']; ?>">
 											<input type="hidden" name="action" value="edit">
 											<div class="form-group">
-												<label>Promotion</label>
+												<label>Promotion<font color="red">*</font></label>
 												<select class="form-control" name="promo">
 													<option value= "">Toutes les promotions</option>
 													<?php foreach ($promotions as $key => $promotion): ?>
@@ -93,20 +93,20 @@
 												</select>
 											</div>
 											<div class="form-group">
-												<label>Libelle</label>
+												<label>Libelle<font color="red">*</font></label>
 												<input type="text" class="form-control" placeholder="Libelle" name="libelle" value="<?php echo $document['libelle']; ?>" required>
 											</div>
 											<div class="form-group">
-												<label>Rang</label>
+												<label>Rang<font color="red">*</font></label>
 												<span promo="<?php echo $document['promo']; ?>" rang="<?php echo $document['rang']; ?>"></span>
 												<select class="form-control" name="rang">
-
 												</select>
 											</div>
 											<div class="form-group">
-												<label>Fichier</label>
+												<label>Fichier<font color="red">*</font></label>
 												<input id="file" name="fichier" placeholder="Fichier" type="file" class="file-loading" value="<?php echo $document['fichier']; ?>" required>
-											</div>								
+											</div>		
+											<p class="champsoblig">* champs obligatoire</p>						
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
@@ -152,7 +152,7 @@
 					<div class="modal-body">					
 						<input type="hidden" name="action" value="add">
 						<div class="form-group">
-							<label>Promotion</label>
+							<label>Promotion<font color="red">*</font></label>
 							<select class="form-control" name="promo">
 								<option value= "">Toutes les promotions</option>
 								<?php foreach ($promotions as $key => $promotion): ?>
@@ -161,19 +161,19 @@
 							</select>
 						</div>
 						<div class="form-group">
-							<label>Libelle</label>
+							<label>Libelle<font color="red">*</font></label>
 							<input type="text" class="form-control" placeholder="Libelle" name="libelle" required>
 						</div>
 						<div class="form-group">
-							<label>Rang</label>
+							<label>Rang<font color="red">*</font></label>
 							<select class="form-control" name="rang">
-<!-- rang -->
 							</select>
 						</div>
 						<div class="form-group">
-							<label>Fichier</label>
+							<label>Fichier<font color="red">*</font></label>
 							<input id="file-add" name="fichier" placeholder="Fichier" type="file" class="file-loading" required>
-						</div>				
+						</div>
+						<p class="champsoblig">* champs obligatoire</p>			
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>

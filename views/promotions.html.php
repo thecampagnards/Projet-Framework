@@ -10,10 +10,19 @@
     <strong>Erreur :</strong> Il y a eu un problème lors de la mise à jour.
   </div>
 <?php endif ?>
+<div class="alert alert-info" role="alert"><strong>Informations : </strong>le csv doit être sous la forme id;libéllé; et la première ligne ne doit pas être vide.</div>
+<form class="form-horizontal" action="promotions" method="POST" enctype="multipart/form-data">
+  <input type="hidden" name="action" value="csv">
+  <label for="InputFichier">Csv à importer</label>
+  <input id="InputFichier" name="csv" placeholder="CSV" type="file" class="file-loading" required>
+  <br/>
+  <button type="submit" class="btn btn-primary">Enregistrer</button>
+</form>
+<br/>
 
 <div id="buttons-tab">
   <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Ajouter</button>
-  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelAll" id="buttonDelAll">Supprimer</button>
+  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelAll" id="buttonDelAll" disabled="disabled">Supprimer</button>
 <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
      Télécharger les données
@@ -45,9 +54,9 @@
         <tbody>
           <?php foreach ($promotions as $key => $promotion): ?>
           <tr>
-            <td><input type="checkbox" value="<?php echo $promotion['id']; ?>" name='id'></td>
+            <td><input type="checkbox" value="<?php echo $promotion['id']; ?>"></td>
             <td><?php echo $promotion['id']; ?></td>
-            <td><?php echo $promotion['libelle']; ?></td>
+            <td class="dispDelAll"><?php echo $promotion['libelle']; ?></td>
             <td>
              <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModalMod<?php echo $promotion['id']; ?>" aria-label="<?php echo $promotion['id']; ?>">
                <span class="glyphicon  glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -70,13 +79,14 @@
                     <input type="hidden" name="id_old" value="<?php echo $promotion['id']; ?>">
                     <input type="hidden" name="action" value="edit">
                     <div class="form-group">
-                      <label for="InputPromotion">Promotion</label>
+                      <label for="InputPromotion">Promotion<font color="red">*</font></label>
                       <input type="text" class="form-control" id="InputPromotion" placeholder="Promotion" name="id" value="<?php echo $promotion['id']; ?>">
                     </div>
                     <div class="form-group">
-                      <label for="InputLibelle">Libelle</label>
+                      <label for="InputLibelle">Libelle<font color="red">*</font></label>
                       <input type="text" class="form-control" id="InputLibelle" placeholder="Libelle" name="libelle" value="<?php echo $promotion['libelle']; ?>">
                     </div>
+                    <p class="champsoblig">* champs obligatoire</p>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
@@ -120,14 +130,16 @@
               <div class="modal-body">
                 <input type="hidden" name="action" value="add">
                 <div class="form-group">
-                  <label for="InputPromotion">Promotion</label>
+                  <label for="InputPromotion">Promotion<font color="red">*</font></label>
                   <input type="text" class="form-control" id="InputPromotion" placeholder="Promotion" name="id">
                 </div>
                 <div class="form-group">
-                  <label for="InputLibelle">Libelle</label>
+                  <label for="InputLibelle">Libelle<font color="red">*</font></label>
                   <input type="text" class="form-control" id="InputLibelle" placeholder="Libelle" name="libelle">
                 </div>
+                <p class="champsoblig">* champs obligatoire</p>
               </div>
+
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
                 <button type="submit" class="btn btn-primary">Ajouter</button>
