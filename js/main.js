@@ -92,19 +92,22 @@ $(document).on('ready', function() {
   });
 });
 
-$(document).on('ready', function() {
-  $("#file-add").fileinput({
-    allowedFileExtensions : ['pdf', 'doc', 'docx'],
-    language: 'fr',
-    maxFileSize: 10000,
-    required: true,
-    showRemove: false,
-    showUpload: false,
-    maxFileCount: 1
+//requete http pour avoir le nombre de fichier d'une promo pour le rang
+
+//prechargement pour editer
+$( document ).ready(function() {
+  $('input[name="promo"]').each(function(index){
+    var promo = $(this);
+    $.get( "./documents/count/"+promo.val(), function(data, status){
+      for (var i = 1; i <= data; i++) {
+
+        promo.parent().parent().find('select[name="rang"]').append('<option value="'+i+'">'+i+'</option>');
+      };
+    });
   });
 });
 
-//requete http pour avoir le nombre de fichier d'une promo pour le rang
+//on click du select
 $('select[name="promo"]').change(function() {
 
   var rang = $(this).parent().parent();
@@ -114,13 +117,21 @@ $('select[name="promo"]').change(function() {
   var value_promo = rang.find('div span').attr('promo');
 
   var promo = $(this);
-  if($(this).val() === '' ) $(this).val("all");
-  console.log($(this).val());
 
   $.get( "./documents/count/"+$(this).val(), function(data, status){
     if(promo.val() !== value_promo) data ++;
     for (var i = 1; i <= data; i++) {
       rang.find('div select[name="rang"]').append('<option value="'+i+'">'+i+'</option>');
+    };
+  });
+});
+
+//prechargement du select
+$( document ).ready(function() {
+  var promo = $('select[name="promo"]');
+  $.get( "./documents/count/"+promo.val(), function(data, status){
+    for (var i = 1; i <= data; i++) {
+      promo.parent().parent().find('select[name="rang"]').append('<option value="'+i+'">'+i+'</option>');
     };
   });
 });
