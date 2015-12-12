@@ -26,7 +26,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
 
     </head>
 
@@ -43,7 +43,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">Web Isen Bretagne</a>
+                    <a class="navbar-brand" href="./">Web Isen Bretagne</a>
+                    <a class="navbar-brand" href="<?php echo APPLICATION_URL ?>"><small>Application rentrée</small></a>
                 </div>
                 <!-- /.navbar-header -->
 
