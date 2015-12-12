@@ -57,7 +57,7 @@
 				<tbody>
 					<?php foreach ($documents as $key => $document): ?>
 						<tr>
-							<td><input type="checkbox" value="<?php echo $document['id']; ?>"></td>
+							<td><input class="IDDelAll" type="checkbox" value="<?php echo $document['id']; ?>"></td>
 							<td><?php echo $document['rang']; ?></td>
 							<td><?php echo $document['promo']; ?></td>
 							<td><?php echo $document['libelle']; ?></td>
@@ -85,7 +85,7 @@
 											<input type="hidden" name="action" value="edit">
 											<div class="form-group">
 												<label>Promotion</label>
-												<input type="text" class="form-control" placeholder="Promotion" name="promo" value="<?php echo $document['promo'] ?>" disabled>
+												<input type="text" class="form-control" placeholder="Promotion" name="promo" value="<?php echo $document['promo'] ?>" readonly>
 											</div>
 											<div class="form-group">
 												<label>Libelle<font color="red">*</font></label>
@@ -101,7 +101,7 @@
 												<label>Fichier</label>
 												<input name="fichier" placeholder="Fichier" type="file" class="file-loading">
 											</div>		
-											<p class="champsoblig">* champs obligatoire</p>						
+											<p class="champsoblig">* champs obligatoires</p>						
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
@@ -168,7 +168,7 @@
 							<label>Fichier<font color="red">*</font></label>
 							<input id="file-add" name="fichier" placeholder="Fichier" type="file" class="file-loading" required>
 						</div>
-						<p class="champsoblig">* champs obligatoire</p>			
+						<p class="champsoblig">* champs obligatoires</p>			
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>

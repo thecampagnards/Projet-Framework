@@ -45,13 +45,17 @@ $('#select-all').click(function(event) {
 
 //fonction liste item supp
 $('#buttonDelAll').click(function(event) {
-  var values=[];   
+  var values=[];  
+  var valuesID=[];   
   $(':checkbox').each(function() {
-    if(this.checked)
+    if(this.checked){
+      console.log($(this).parent().parent().find(".IDDelAll").val());
       values.push($(this).parent().parent().find(".dispDelAll").html());
+      valuesID.push($(this).parent().parent().find(".IDDelAll").val());
+    }
   });
   $('#listDelAll').html('');
-  $('input[name=ids]').val(values);
+  $('input[name=ids]').val(valuesID);
   $.each(values, function(index, value){
     if(value !== undefined)
       $('#listDelAll').append("<li>"+value+"</li>");

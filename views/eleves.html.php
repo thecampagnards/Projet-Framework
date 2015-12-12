@@ -60,7 +60,7 @@
 				<tbody>
 					<?php foreach ($eleves as $key => $eleve): ?>
 					<tr>
-						<td><input type="checkbox" value="<?php echo $eleve['id']; ?>" name="id"></td>
+						<td><input class="IDDelAll" type="checkbox" value="<?php echo $eleve['id']; ?>"></td>
 						<td class="dispDelAll"><?php echo $eleve['identifiant']; ?> </td>
 						<td><?php echo $eleve['nom_fils']; ?></td>
 						<td><?php echo $eleve['prenom_fils']; ?></td>
@@ -104,7 +104,7 @@
 										</div>
 										<div class="form-group">
 											<label for="InputRang">Date de naissance<font color="red">*</font></label>
-											<input type="date" class="form-control" id="InputRang" placeholder="Date de naissance" name="ddn_fils" value="">
+											<input type="date" class="form-control" id="InputRang" placeholder="Date de naissance" name="ddn_fils" value="<?php echo $eleve['ddn_fils']; ?>">
 										</div>
 										<div class="form-group">
 											<label for="InputRang">Téléphone<font color="red">*</font></label>
@@ -114,7 +114,7 @@
 											<label for="InputRang">Mail<font color="red">*</font></label>
 											<input type="email" class="form-control" id="InputRang" placeholder="Adresse mail" name="courriel" value="<?php echo $eleve['courriel']; ?>">
 										</div>
-										<p class="champsoblig">* champs obligatoire</p>
+										<p class="champsoblig">* champs obligatoires</p>
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
@@ -182,7 +182,7 @@
 									<label for="InputRang">Mail<font color="red">*</font></label>
 									<input type="email" class="form-control" id="InputRang" placeholder="Adresse mail" name="courriel">
 								</div>
-								<p class="champsoblig">* champs obligatoire</p>
+								<p class="champsoblig">* champs obligatoires</p>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
