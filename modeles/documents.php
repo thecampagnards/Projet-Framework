@@ -39,6 +39,7 @@ function editDocument($id, $rang, $promo, $libelle, $fichier) {
 	$sql = 'UPDATE document SET
 	id = :id,
 	rang = :rang,
+	promo = :promo,
 	libelle = :libelle';
 	if(isset($fichier) && !empty($fichier)) if($fichier_chemin = addFile($fichier,$promo)) {
 		$sql .= ', fichier = :fichier';
@@ -123,6 +124,7 @@ function addFile($fichier,$promo) {
 	if ($fichier['error'] == UPLOAD_ERR_OK) {
 		$source = $fichier['tmp_name'];
 		$upload_dir = '';
+
 		if(strpos($promo,'A1') || strpos($promo,'A2')) $upload_dir = 'A12/';
 		else if(strpos($promo,'A3') || strpos($promo,'A4')|| strpos($promo,'A5')) $upload_dir = 'A345/';
 		if (file_exists(FILES_DIR.$upload_dir) && is_writable(FILES_DIR.$upload_dir)) {
