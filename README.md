@@ -1,4 +1,6 @@
 <h1>Projet framework avec limonade</h1>
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/cfce434c681640d1b222c452bc127ac5)](https://www.codacy.com/app/konstantin-sidorenko/Projet-Framework)
+
 Création d'une interface d'administration pour l'application http://web.isen-bretagne.fr/rentree/
 <br/>
 <ul>
